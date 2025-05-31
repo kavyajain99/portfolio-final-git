@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Play Coconut Game - Kavya Jain</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'cherry-red': '#6B1D1D',
+                        'butter-yellow': '#F5EDA3',
+                        'aura-indigo': '#B0A6DE',
+                        'dill-green': '#5F6B13',
+                        'alpine-oat': '#F0EDE3',
+                        'dark-cherry': '#4A1414',
+                        'light-cherry': '#8B2D2D'
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/lucide/0.263.1/lucide.min.css" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body {
+            background-color: #FEFEFE;
+            color: #1A1A1A;
+        }
+        .card {
+            background-color: #F0EDE3;
+            border: 2px solid #6B1D1D;
+            box-shadow: 0 4px 6px -1px rgba(107, 29, 29, 0.1);
+        }
+        .badge {
+            background-color: #B0A6DE;
+            color: #1A1A1A;
+            font-weight: 600;
+        }
+        .badge-secondary {
+            background-color: #F5EDA3;
+            color: #1A1A1A;
+            font-weight: 600;
+        }
+        .text-muted {
+            color: #2D2D2D;
+        }
+        .btn-primary {
+            background-color: #6B1D1D;
+            color: #FFFFFF;
+            border: 2px solid #6B1D1D;
+            font-weight: 600;
+        }
+        .btn-primary:hover {
+            background-color: #4A1414;
+            border-color: #4A1414;
+        }
+        .btn-outline {
+            background-color: transparent;
+            color: #6B1D1D;
+            border: 2px solid #6B1D1D;
+            font-weight: 600;
+        }
+        .btn-outline:hover {
+            background-color: #6B1D1D;
+            color: #FFFFFF;
+        }
+        .nav-link {
+            color: #2D2D2D;
+            font-weight: 500;
+        }
+        .nav-link:hover {
+            color: #6B1D1D;
+        }
+        .section-title {
+            color: #6B1D1D;
+            font-weight: 700;
+        }
+        .border-custom {
+            border-color: #6B1D1D;
+        }
+        .icon-primary {
+            color: #6B1D1D;
+        }
+        .header-bg {
+            background-color: rgba(254, 254, 254, 0.95);
+            backdrop-filter: blur(10px);
+        }
+        .video-container {
+            position: relative;
+            width: 100%;
+            height: 0;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 2px solid #6B1D1D;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <header class="sticky top-0 z-40 w-full border-b-2 border-custom header-bg">
+        <div class="container mx-auto px-4 flex h-16 items-center justify-between">
+            <div class="flex items-center gap-4">
+                <a href="index.html" class="flex items-center gap-2 nav-link hover:text-cherry-red transition-colors">
+                    <i data-lucide="arrow-left" class="h-5 w-5"></i>
+                    <span class="font-medium">Back to Portfolio</span>
+                </a>
+            </div>
+            <div class="flex items-center gap-2">
+                <i data-lucide="layers" class="h-6 w-6 icon-primary"></i>
+                <span class="font-bold text-xl">Kavya Jain</span>
+            </div>
+            <div class="w-32"></div> <!-- Spacer for centering -->
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-10">
+        <!-- Project Header -->
+        <section class="py-12 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold tracking-tight section-title mb-4">
+                Play Coconut
+            </h1>
+            <p class="text-xl text-muted font-medium mb-6">
+                CIM 203 Final Project - Interactive 3D Game Development
+            </p>
+            <div class="flex justify-center gap-4">
+                <a href="https://youtu.be/L7PFY7X9xKo" target="_blank" class="btn-primary px-6 py-3 rounded-md transition-colors flex items-center gap-2">
+                    <i data-lucide="play" class="h-5 w-5"></i>
+                    Watch Game Demo
+                </a>
+                <a href="#" target="_blank" class="btn-outline px-6 py-3 rounded-md transition-colors flex items-center gap-2">
+                    <i data-lucide="file-text" class="h-5 w-5"></i>
+                    View Presentation
+                </a>
+            </div>
+        </section>
+
+        <!-- Game Demo Video -->
+        <section class="py-12 border-t-2 border-custom">
+            <h2 class="text-3xl font-bold mb-8 section-title text-center">Game Demo</h2>
+            <div class="max-w-4xl mx-auto">
+                <div class="video-container">
+                    <iframe 
+                        src="https://www.youtube.com/embed/L7PFY7X9xKo" 
+                        title="Play Coconut Game Demo" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                        allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+        </section>
+
+        <!-- Project Overview -->
+        <section class="py-12 border-t-2 border-custom">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-3xl font-bold mb-6 section-title">Game Overview</h2>
+                    <div class="space-y-4 text-muted">
+                        <p class="font-medium text-lg">
+                            Play Coconut is an interactive 3D game where the user's goal is to collect as many coconuts as possible before the time runs out.
+                        </p>
+                        <p class="font-medium">
+                            Coconuts are collected through two main mechanics: collisions with the player character and direct mouse clicks. This dual interaction system creates an engaging and dynamic gameplay experience that challenges players to use both movement strategy and quick reflexes.
+                        </p>
+                        <p class="font-medium">
+                            The game features a tropical island setting with palm trees, ocean views, and a beautiful sky environment that immerses players in a relaxing yet competitive coconut-collecting adventure.
+                        </p>
+                    </div>
+                </div>
+                <div class="card p-6 rounded-lg">
+                    <h3 class="text-xl font-bold mb-4">Technologies Used</h3>
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="badge px-3 py-1 rounded-full text-sm">Unity</span>
+                        <span class="badge px-3 py-1 rounded-full text-sm">C#</span>
+                        <span class="badge px-3 py-1 rounded-full text-sm">3D Modeling</span>
+                        <span class="badge px-3 py-1 rounded-full text-sm">Game Design</span>
+                        <span class="badge px-3 py-1 rounded-full text-sm">Scene Management</span>
+                        <span class="badge px-3 py-1 rounded-full text-sm">UI/UX</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Game Mechanics</h3>
+                    <ul class="space-y-2 text-muted">
+                        <li class="flex items-center gap-2">
+                            <i data-lucide="mouse-pointer" class="h-4 w-4 icon-primary"></i>
+                            <span>Click-to-collect coconuts</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i data-lucide="move" class="h-4 w-4 icon-primary"></i>
+                            <span>Collision-based collection</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i data-lucide="clock" class="h-4 w-4 icon-primary"></i>
+                            <span>Time-based challenges</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i data-lucide="target" class="h-4 w-4 icon-primary"></i>
+                            <span>Score tracking system</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i data-lucide="gamepad-2" class="h-4 w-4 icon-primary"></i>
+                            <span>Keyboard and mouse controls</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Game Architecture -->
+        <section class="py-12 border-t-2 border-custom">
+            <h2 class="text-3xl font-bold mb-8 section-title">Game Architecture</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="card p-6 rounded-lg text-center">
+                    <div class="flex justify-center mb-4">
+                        <i data-lucide="layers" class="h-12 w-12 icon-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Scene Manager</h3>
+                    <ul class="text-sm text-muted space-y-1">
+                        <li>• Start Screen</li>
+                        <li>• Play Area</li>
+                        <li>• End Goal Screen</li>
+                    </ul>
+                </div>
+
+                <div class="card p-6 rounded-lg text-center">
+                    <div class="flex justify-center mb-4">
+                        <i data-lucide="image" class="h-12 w-12 icon-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Multiple Assets</h3>
+                    <ul class="text-sm text-muted space-y-1">
+                        <li>• Ocean & Sky Images</li>
+                        <li>• 3D Coconuts</li>
+                        <li>• Palm Trees</li>
+                    </ul>
+                </div>
+
+                <div class="card p-6 rounded-lg text-center">
+                    <div class="flex justify-center mb-4">
+                        <i data-lucide="gamepad-2" class="h-12 w-12 icon-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">4x Inputs</h3>
+                    <ul class="text-sm text-muted space-y-1">
+                        <li>• Mouse Clicks</li>
+                        <li>• Keyboard Walking</li>
+                        <li>• UI Elements</li>
+                        <li>• Colliders</li>
+                    </ul>
+                </div>
+
+                <div class="card p-6 rounded-lg text-center">
+                    <div class="flex justify-center mb-4">
+                        <i data-lucide="code" class="h-12 w-12 icon-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Code Structure</h3>
+                    <ul class="text-sm text-muted space-y-1">
+                        <li>• Arrays for Timing</li>
+                        <li>• Collision Lists</li>
+                        <li>• For Loop Debug</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technical Implementation -->
+        <section class="py-12 border-t-2 border-custom">
+            <h2 class="text-3xl font-bold mb-8 section-title">Technical Implementation</h2>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div class="card p-6 rounded-lg">
+                    <h3 class="text-xl font-bold mb-4 flex items-center gap-2">
+                        <i data-lucide="settings" class="h-6 w-6 icon-primary"></i>
+                        Scene Management
+                    </h3>
+                    <div class="space-y-3 text-muted">
+                        <div class="border-l-4 border-cherry-red pl-4">
+                            <h4 class="font-bold">Start Screen</h4>
+                            <p class="text-sm">Game instructions and welcome interface</p>
+                        </div>
+                        <div class="border-l-4 border-cherry-red pl-4">
+                            <h4 class="font-bold">Middle/Play Area</h4>
+                            <p class="text-sm">Main gameplay with trees and coconut collection</p>
+                        </div>
+                        <div class="border-l-4 border-cherry-red pl-4">
+                            <h4 class="font-bold">End Goal</h4>
+                            <p class="text-sm">Final score display with lone coconut</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card p-6 rounded-lg">
+                    <h3 class="text-xl font-bold mb-4 flex items-center gap-2">
+                        <i data-lucide="database" class="h-6 w-6 icon-primary"></i>
+                        Data Structures
+                    </h3>
+                    <div class="space-y-3 text-muted">
+                        <div class="border-l-4 border-dill-green pl-4">
+                            <h4 class="font-bold">Arrays</h4>
+                            <p class="text-sm">Managing time-based game mechanics</p>
+                        </div>
+                        <div class="border-l-4 border-dill-green pl-4">
+                            <h4 class="font-bold">Lists</h4>
+                            <p class="text-sm">Tracking collision events and interactions</p>
+                        </div>
+                        <div class="border-l-4 border-dill-green pl-4">
+                            <h4 class="font-bold">For Loops</h4>
+                            <p class="text-sm">Debug logging and system verification</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Game Features -->
+        <section class="py-12 border-t-2 border-custom">
+            <h2 class="text-3xl font-bold mb-8 section-title">Key Features</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="card p-6 rounded-lg">
+                    <div class="flex items-center gap-3 mb-4">
+                        <i data-lucide="target" class="h-8 w-8 icon-primary"></i>
+                        <h3 class="text-lg font-bold">Dual Collection System</h3>
+                    </div>
+                    <p class="text-muted">Players can collect coconuts through both collision detection and direct mouse clicks, creating varied gameplay strategies.</p>
+                </div>
+
+                <div class="card p-6 rounded-lg">
+                    <div class="flex items-center gap-3 mb-4">
+                        <i data-lucide="clock" class="h-8 w-8 icon-primary"></i>
+                        <h3 class="text-lg font-bold">Time Challenge</h3>
+                    </div>
+                    <p class="text-muted">Race against the clock to collect as many coconuts as possible, adding urgency and excitement to the gameplay.</p>
+                </div>
+
+                <div class="card p-6 rounded-lg">
+                    <div class="flex items-center gap-3 mb-4">
+                        <i data-lucide="mountain" class="h-8 w-8 icon-primary"></i>
+                        <h3 class="text-lg font-bold">Immersive Environment</h3>
+                    </div>
+                    <p class="text-muted">Beautiful tropical setting with ocean views, sky backgrounds, and realistic 3D palm trees and coconuts.</p>
+                </div>
+
+                <div class="card p-6 rounded-lg">
+                    <div class="flex items-center gap-3 mb-4">
+                        <i data-lucide="gamepad" class="h-8 w-8 icon-primary"></i>
+                        <h3 class="text-lg font-bold">Intuitive Controls</h3>
+                    </div>
+                    <p class="text-muted">Simple keyboard movement controls combined with mouse interaction for an accessible gaming experience.</p>
+                </div>
+
+                <div class="card p-6 rounded-lg">
+                    <div class="flex items-center gap-3 mb-4">
+                        <i data-lucide="trophy" class="h-8 w-8 icon-primary"></i>
+                        <h3 class="text-lg font-bold">Score Tracking</h3>
+                    </div>
+                    <p class="text-muted">Real-time score updates and final score display to track player performance and encourage replayability.</p>
+                </div>
+
+                <div class="card p-6 rounded-lg">
+                    <div class="flex items-center gap-3 mb-4">
+                        <i data-lucide="monitor" class="h-8 w-8 icon-primary"></i>
+                        <h3 class="text-lg font-bold">Clean UI Design</h3>
+                    </div>
+                    <p class="text-muted">User-friendly interface with clear instructions, score display, and smooth scene transitions.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Development Process -->
+        <section class="py-12 border-t-2 border-custom">
+            <h2 class="text-3xl font-bold mb-8 section-title">Development Process</h2>
+            <div class="card p-8 rounded-lg">
+                <div class="space-y-6 text-muted">
+                    <p class="font-medium">
+                        This project was developed as the final assignment for CIM 203, demonstrating proficiency in Unity game development, C# programming, and 3D asset integration.
+                    </p>
+                    <p class="font-medium">
+                        The development process involved careful planning of game mechanics, implementing multiple input systems, creating an engaging user interface, and optimizing performance for smooth gameplay. Special attention was paid to collision detection systems and user experience design.
+                    </p>
+                </div>
+                
+                <div class="mt-8">
+                    <h3 class="text-xl font-bold mb-4">Development Highlights</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <h4 class="font-bold mb-2 flex items-center gap-2">
+                                <i data-lucide="lightbulb" class="h-5 w-5 icon-primary"></i>
+                                Game Design
+                            </h4>
+                            <ul class="text-sm text-muted space-y-1 ml-7">
+                                <li>• Conceptualized engaging coconut collection mechanics</li>
+                                <li>• Designed intuitive user interface and controls</li>
+                                <li>• Created balanced time-based challenge system</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-bold mb-2 flex items-center gap-2">
+                                <i data-lucide="code" class="h-5 w-5 icon-primary"></i>
+                                Technical Implementation
+                            </h4>
+                            <ul class="text-sm text-muted space-y-1 ml-7">
+                                <li>• Implemented collision detection systems</li>
+                                <li>• Integrated multiple input handling methods</li>
+                                <li>• Optimized performance and debugging systems</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action -->
+        <section class="py-12 border-t-2 border-custom text-center">
+            <h2 class="text-3xl font-bold mb-6 section-title">Experience the Game</h2>
+            <p class="text-muted font-medium mb-8 max-w-2xl mx-auto">
+                Watch the full gameplay demo and explore the technical presentation to see Play Coconut in action.
+            </p>
+            <div class="flex justify-center gap-4">
+                <a href="https://youtu.be/L7PFY7X9xKo" target="_blank" class="btn-primary px-8 py-4 rounded-md transition-colors flex items-center gap-2">
+                    <i data-lucide="play" class="h-5 w-5"></i>
+                    Watch Full Demo
+                </a>
+                <a href="index.html" class="btn-outline px-8 py-4 rounded-md transition-colors flex items-center gap-2">
+                    <i data-lucide="arrow-left" class="h-5 w-5"></i>
+                    Back to Portfolio
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="border-t-2 border-custom py-6 bg-alpine-oat">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-4">
+            <div class="flex items-center gap-2">
+                <i data-lucide="layers" class="h-5 w-5 icon-primary"></i>
+                <span class="font-bold">Kavya Jain</span>
+            </div>
+            <p class="text-sm text-muted font-medium">© 2024 Kavya Jain. All rights reserved.</p>
+            <div class="flex items-center gap-4">
+                <a href="https://www.linkedin.com/in/kavya2024/" target="_blank" class="text-muted hover:text-cherry-red transition-colors">
+                    <i data-lucide="linkedin" class="h-5 w-5"></i>
+                </a>
+                <a href="https://github.com/kavyajain" target="_blank" class="text-muted hover:text-cherry-red transition-colors">
+                    <i data-lucide="github" class="h-5 w-5"></i>
+                </a>
+                <a href="mailto:kavya_jain@yahoo.com" class="text-muted hover:text-cherry-red transition-colors">
+                    <i data-lucide="mail" class="h-5 w-5"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+    </script>
+</body>
+</html>
