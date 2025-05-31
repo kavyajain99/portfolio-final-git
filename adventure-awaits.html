@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adventure Awaits - Kavya Jain</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'cherry-red': '#6B1D1D',
+                        'butter-yellow': '#F5EDA3',
+                        'aura-indigo': '#B0A6DE',
+                        'dill-green': '#5F6B13',
+                        'alpine-oat': '#F0EDE3',
+                        'dark-cherry': '#4A1414',
+                        'light-cherry': '#8B2D2D'
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/lucide/0.263.1/lucide.min.css" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body {
+            background-color: #FEFEFE;
+            color: #1A1A1A;
+        }
+        .card {
+            background-color: #F0EDE3;
+            border: 2px solid #6B1D1D;
+            box-shadow: 0 4px 6px -1px rgba(107, 29, 29, 0.1);
+        }
+        .badge {
+            background-color: #B0A6DE;
+            color: #1A1A1A;
+            font-weight: 600;
+        }
+        .badge-secondary {
+            background-color: #F5EDA3;
+            color: #1A1A1A;
+            font-weight: 600;
+        }
+        .text-muted {
+            color: #2D2D2D;
+        }
+        .btn-primary {
+            background-color: #6B1D1D;
+            color: #FFFFFF;
+            border: 2px solid #6B1D1D;
+            font-weight: 600;
+        }
+        .btn-primary:hover {
+            background-color: #4A1414;
+            border-color: #4A1414;
+        }
+        .btn-outline {
+            background-color: transparent;
+            color: #6B1D1D;
+            border: 2px solid #6B1D1D;
+            font-weight: 600;
+        }
+        .btn-outline:hover {
+            background-color: #6B1D1D;
+            color: #FFFFFF;
+        }
+        .nav-link {
+            color: #2D2D2D;
+            font-weight: 500;
+        }
+        .nav-link:hover {
+            color: #6B1D1D;
+        }
+        .section-title {
+            color: #6B1D1D;
+            font-weight: 700;
+        }
+        .border-custom {
+            border-color: #6B1D1D;
+        }
+        .icon-primary {
+            color: #6B1D1D;
+        }
+        .header-bg {
+            background-color: rgba(254, 254, 254, 0.95);
+            backdrop-filter: blur(10px);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <header class="sticky top-0 z-40 w-full border-b-2 border-custom header-bg">
+        <div class="container mx-auto px-4 flex h-16 items-center justify-between">
+            <div class="flex items-center gap-4">
+                <a href="index.html" class="flex items-center gap-2 nav-link hover:text-cherry-red transition-colors">
+                    <i data-lucide="arrow-left" class="h-5 w-5"></i>
+                    <span class="font-medium">Back to Portfolio</span>
+                </a>
+            </div>
+            <div class="flex items-center gap-2">
+                <i data-lucide="layers" class="h-6 w-6 icon-primary"></i>
+                <span class="font-bold text-xl">Kavya Jain</span>
+            </div>
+            <div class="w-32"></div> <!-- Spacer for centering -->
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-10">
+        <!-- Project Header -->
+        <section class="py-12 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold tracking-tight section-title mb-4">
+                Adventure Awaits
+            </h1>
+            <p class="text-xl text-muted font-medium mb-6">
+                App Prototype - Created using Figma
+            </p>
+            <div class="flex justify-center gap-4">
+                <a href="https://www.figma.com/proto/n0hET4uiDRUNM8tsx525Uv/Final-Project?kind=proto&node-id=108-1004&page-id=108%3A916&scaling=scale-down&show-proto-sidebar=1&starting-point-node-id=108%3A1637" target="_blank" class="btn-primary px-6 py-3 rounded-md transition-colors flex items-center gap-2">
+                    <i data-lucide="external-link" class="h-5 w-5"></i>
+                    View Interactive Prototype
+                </a>
+            </div>
+        </section>
+
+        <!-- Project Overview -->
+        <section class="py-12 border-t-2 border-custom">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-3xl font-bold mb-6 section-title">Project Overview</h2>
+                    <div class="space-y-4 text-muted">
+                        <p class="font-medium">
+                            In my interaction design class, I studied heuristics and the dimensions and laws of interaction design. The class also covered how to wireframe (lo-fi, high-fi, paper), create interactive prototypes, utilize XD tools and artboards, UI kits, and responsive design. I also learned how to create a case study, and share/test prototypes.
+                        </p>
+                        <p class="font-medium">
+                            For this class, the final project was creating a fully functioning, elegant, and reactive application to solve a problem that we witness in everyday life. I created the application Adventure Awaits.
+                        </p>
+                        <p class="font-medium">
+                            Adventure Awaits will help users keep track of and accomplish goals in a simple and engaging way. Different from traditional pen and paper lists, spreadsheets, and digital notepads, the application's beautiful user interface and easy to create and modify goal lists will inspire users to aspire to achieve their full potential, all the while keeping organized and connected to others.
+                        </p>
+                    </div>
+                </div>
+                <div class="card p-6 rounded-lg">
+                    <h3 class="text-xl font-bold mb-4">Technologies Used</h3>
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="badge px-3 py-1 rounded-full text-sm">Figma</span>
+                        <span class="badge px-3 py-1 rounded-full text-sm">UX/UI Design</span>
+                        <span class="badge px-3 py-1 rounded-full text-sm">Prototyping</span>
+                        <span class="badge px-3 py-1 rounded-full text-sm">User Testing</span>
+                        <span class="badge px-3 py-1 rounded-full text-sm">Wireframing</span>
+                        <span class="badge px-3 py-1 rounded-full text-sm">Interaction Design</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Key Features</h3>
+                    <ul class="space-y-2 text-muted">
+                        <li class="flex items-center gap-2">
+                            <i data-lucide="check" class="h-4 w-4 icon-primary"></i>
+                            <span>Goal tracking and management</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i data-lucide="check" class="h-4 w-4 icon-primary"></i>
+                            <span>Beautiful and intuitive UI</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i data-lucide="check" class="h-4 w-4 icon-primary"></i>
+                            <span>Easy goal creation and modification</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i data-lucide="check" class="h-4 w-4 icon-primary"></i>
+                            <span>Social connectivity features</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i data-lucide="check" class="h-4 w-4 icon-primary"></i>
+                            <span>Engaging user experience</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Design Process -->
+        <section class="py-12 border-t-2 border-custom">
+            <h2 class="text-3xl font-bold mb-8 section-title">Design Process</h2>
+            <div class="card p-8 rounded-lg">
+                <div class="space-y-6 text-muted">
+                    <p class="font-medium">
+                        My process began with brainstorming and thinking about user goals and needs. I then proceeded to create a simple paper wireframe to outline my ideas. After that, I used Figma to create a low-fidelity wireframe, and once I was satisfied with the basic design, added color and graphics to create a high-fidelity wireframe. Next, I added animations between the frames. Finally, I had two users test the application and updated the application based on their feedback.
+                    </p>
+                </div>
+                
+                <div class="mt-8">
+                    <h3 class="text-xl font-bold mb-4">Process Steps</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                        <div class="text-center p-4 border-2 border-custom rounded-lg">
+                            <i data-lucide="lightbulb" class="h-8 w-8 icon-primary mx-auto mb-2"></i>
+                            <h4 class="font-bold mb-2">1. Brainstorming</h4>
+                            <p class="text-sm text-muted">Identified user goals and needs</p>
+                        </div>
+                        <div class="text-center p-4 border-2 border-custom rounded-lg">
+                            <i data-lucide="pencil" class="h-8 w-8 icon-primary mx-auto mb-2"></i>
+                            <h4 class="font-bold mb-2">2. Paper Wireframe</h4>
+                            <p class="text-sm text-muted">Created initial concept sketches</p>
+                        </div>
+                        <div class="text-center p-4 border-2 border-custom rounded-lg">
+                            <i data-lucide="monitor" class="h-8 w-8 icon-primary mx-auto mb-2"></i>
+                            <h4 class="font-bold mb-2">3. Digital Wireframes</h4>
+                            <p class="text-sm text-muted">Low-fi to high-fi progression</p>
+                        </div>
+                        <div class="text-center p-4 border-2 border-custom rounded-lg">
+                            <i data-lucide="users" class="h-8 w-8 icon-primary mx-auto mb-2"></i>
+                            <h4 class="font-bold mb-2">4. User Testing</h4>
+                            <p class="text-sm text-muted">Tested with users and iterated</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Wireframe Evolution -->
+        <section class="py-12 border-t-2 border-custom">
+            <h2 class="text-3xl font-bold mb-8 section-title">Wireframe Evolution</h2>
+            <div class="card p-8 rounded-lg">
+                <p class="text-muted font-medium mb-8 text-center">
+                    Below is the transformation of a primary screen from a paper wireframe to a low-fi wireframe to a high-fi wireframe.
+                </p>
+                <div class="flex justify-center">
+                    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/adventureawaits-LAbbbTbDULZPS90H3xeTOvA9UalI5F.png" alt="Adventure Awaits Wireframe Evolution" class="max-w-full h-auto rounded-lg border-2 border-custom">
+                </div>
+                <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+                    <div>
+                        <h3 class="font-bold text-lg mb-2">Paper Wireframe</h3>
+                        <p class="text-muted text-sm">Initial concept sketched by hand to quickly explore ideas and layout</p>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-lg mb-2">Low-Fi Wireframe</h3>
+                        <p class="text-muted text-sm">Digital wireframe focusing on structure and functionality without visual design</p>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-lg mb-2">High-Fi Wireframe</h3>
+                        <p class="text-muted text-sm">Final design with colors, typography, and visual elements for realistic user experience</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Key Learnings -->
+        <section class="py-12 border-t-2 border-custom">
+            <h2 class="text-3xl font-bold mb-8 section-title">Key Learnings</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="card p-6 rounded-lg">
+                    <h3 class="text-xl font-bold mb-4 flex items-center gap-2">
+                        <i data-lucide="target" class="h-6 w-6 icon-primary"></i>
+                        Design Principles
+                    </h3>
+                    <ul class="space-y-2 text-muted">
+                        <li>• Heuristics and interaction design laws</li>
+                        <li>• User-centered design approach</li>
+                        <li>• Responsive design considerations</li>
+                        <li>• Accessibility best practices</li>
+                    </ul>
+                </div>
+                <div class="card p-6 rounded-lg">
+                    <h3 class="text-xl font-bold mb-4 flex items-center gap-2">
+                        <i data-lucide="tools" class="h-6 w-6 icon-primary"></i>
+                        Technical Skills
+                    </h3>
+                    <ul class="space-y-2 text-muted">
+                        <li>• Advanced Figma prototyping</li>
+                        <li>• Interactive animation design</li>
+                        <li>• Component-based design systems</li>
+                        <li>• User testing methodologies</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action -->
+        <section class="py-12 border-t-2 border-custom text-center">
+            <h2 class="text-3xl font-bold mb-6 section-title">Explore the Prototype</h2>
+            <p class="text-muted font-medium mb-8 max-w-2xl mx-auto">
+                Experience the full interactive prototype on Figma to see the complete user journey and interactions.
+            </p>
+            <div class="flex justify-center gap-4">
+                <a href="https://www.figma.com/proto/n0hET4uiDRUNM8tsx525Uv/Final-Project?kind=proto&node-id=108-1004&page-id=108%3A916&scaling=scale-down&show-proto-sidebar=1&starting-point-node-id=108%3A1637" target="_blank" class="btn-primary px-8 py-4 rounded-md transition-colors flex items-center gap-2">
+                    <i data-lucide="play" class="h-5 w-5"></i>
+                    Launch Interactive Prototype
+                </a>
+                <a href="index.html" class="btn-outline px-8 py-4 rounded-md transition-colors flex items-center gap-2">
+                    <i data-lucide="arrow-left" class="h-5 w-5"></i>
+                    Back to Portfolio
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="border-t-2 border-custom py-6 bg-alpine-oat">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-4">
+            <div class="flex items-center gap-2">
+                <i data-lucide="layers" class="h-5 w-5 icon-primary"></i>
+                <span class="font-bold">Kavya Jain</span>
+            </div>
+            <p class="text-sm text-muted font-medium">© 2024 Kavya Jain. All rights reserved.</p>
+            <div class="flex items-center gap-4">
+                <a href="https://www.linkedin.com/in/kavya2024/" target="_blank" class="text-muted hover:text-cherry-red transition-colors">
+                    <i data-lucide="linkedin" class="h-5 w-5"></i>
+                </a>
+                <a href="https://github.com/kavyajain" target="_blank" class="text-muted hover:text-cherry-red transition-colors">
+                    <i data-lucide="github" class="h-5 w-5"></i>
+                </a>
+                <a href="mailto:kavya_jain@yahoo.com" class="text-muted hover:text-cherry-red transition-colors">
+                    <i data-lucide="mail" class="h-5 w-5"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+    </script>
+</body>
+</html>
