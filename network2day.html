@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Network2Day - Kavya Jain</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'cherry-red': '#6B1D1D',
+                        'butter-yellow': '#F5EDA3',
+                        'aura-indigo': '#B0A6DE',
+                        'dill-green': '#5F6B13',
+                        'alpine-oat': '#F0EDE3',
+                        'dark-cherry': '#4A1414',
+                        'light-cherry': '#8B2D2D'
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/lucide/0.263.1/lucide.min.css" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body {
+            background-color: #FEFEFE;
+            color: #1A1A1A;
+        }
+        .card {
+            background-color: #F0EDE3;
+            border: 2px solid #6B1D1D;
+            box-shadow: 0 4px 6px -1px rgba(107, 29, 29, 0.1);
+        }
+        .badge {
+            background-color: #B0A6DE;
+            color: #1A1A1A;
+            font-weight: 600;
+        }
+        .badge-secondary {
+            background-color: #F5EDA3;
+            color: #1A1A1A;
+            font-weight: 600;
+        }
+        .text-muted {
+            color: #2D2D2D;
+        }
+        .btn-primary {
+            background-color: #6B1D1D;
+            color: #FFFFFF;
+            border: 2px solid #6B1D1D;
+            font-weight: 600;
+        }
+        .btn-primary:hover {
+            background-color: #4A1414;
+            border-color: #4A1414;
+        }
+        .btn-outline {
+            background-color: transparent;
+            color: #6B1D1D;
+            border: 2px solid #6B1D1D;
+            font-weight: 600;
+        }
+        .btn-outline:hover {
+            background-color: #6B1D1D;
+            color: #FFFFFF;
+        }
+        .nav-link {
+            color: #2D2D2D;
+            font-weight: 500;
+        }
+        .nav-link:hover {
+            color: #6B1D1D;
+        }
+        .section-title {
+            color: #6B1D1D;
+            font-weight: 700;
+        }
+        .border-custom {
+            border-color: #6B1D1D;
+        }
+        .icon-primary {
+            color: #6B1D1D;
+        }
+        .header-bg {
+            background-color: rgba(254, 254, 254, 0.95);
+            backdrop-filter: blur(10px);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <header class="sticky top-0 z-40 w-full border-b-2 border-custom header-bg">
+        <div class="container mx-auto px-4 flex h-16 items-center justify-between">
+            <div class="flex items-center gap-4">
+                <a href="index.html" class="flex items-center gap-2 nav-link hover:text-cherry-red transition-colors">
+                    <i data-lucide="arrow-left" class="h-5 w-5"></i>
+                    <span class="font-medium">Back to Portfolio</span>
+                </a>
+            </div>
+            <div class="flex items-center gap-2">
+                <i data-lucide="layers" class="h-6 w-6 icon-primary"></i>
+                <span class="font-bold text-xl">Kavya Jain</span>
+            </div>
+            <div class="w-32"></div> <!-- Spacer for centering -->
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-10">
+        <!-- Project Header -->
+        <section class="py-12 text-center">
+            <div class="flex justify-center items-center gap-3 mb-4">
+                <i data-lucide="trophy" class="h-12 w-12 icon-primary"></i>
+                <h1 class="text-4xl md:text-5xl font-bold tracking-tight section-title">
+                    Network2Day
+                </h1>
+            </div>
+            <p class="text-xl text-muted font-medium mb-2">
+                Winner of Travelers Innovation Jam Hackathon 2022
+            </p>
+            <p class="text-lg text-muted mb-6">
+                Scrum Master & Lead UX/UI Designer
+            </p>
+            <div class="flex justify-center gap-4">
+                <a href="https://www.figma.com/design/f7ZAd3g9YkEovz1nK8f3Ir/Travelers?node-id=405-428" target="_blank" class="btn-primary px-6 py-3 rounded-md transition-colors flex items-center gap-2">
+                    <i data-lucide="external-link" class="h-5 w-5"></i>
+                    View Figma Design
+                </a>
+            </div>
+        </section>
+
+        <!-- Project Overview -->
+        <section class="py-12 border-t-2 border-custom">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-3xl font-bold mb-6 section-title">Project Overview</h2>
+                    <div class="space-y-4 text-muted">
+                        <p class="font-medium text-lg">
+                            Led my team to victory in Travelers' 2022 Innovation Jam hackathon with Network2Day, a web application designed to improve company culture and knowledge sharing.
+                        </p>
+                        <p class="font-medium">
+                            Served as <strong>Scrum Master</strong> and <strong>Lead UX/UI Designer</strong>, coordinating development while creating TDS-compliant interfaces for employee networking, event management, and corporate communication.
+                        </p>
+                    </div>
+                </div>
+                <div class="card p-6 rounded-lg">
+                    <h3 class="text-xl font-bold mb-4">Key Accomplishments</h3>
+                    <div class="space-y-3">
+                        <div class="flex items-center gap-3">
+                            <i data-lucide="trophy" class="h-5 w-5 icon-primary"></i>
+                            <span class="font-medium">Won company-wide hackathon</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i data-lucide="users" class="h-5 w-5 icon-primary"></i>
+                            <span class="font-medium">Led cross-functional team as Scrum Master</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i data-lucide="palette" class="h-5 w-5 icon-primary"></i>
+                            <span class="font-medium">Designed TDS-compliant UI/UX</span>
+                        </div>
+                    </div>
+                    <div class="mt-6">
+                        <h4 class="font-bold mb-3">Technologies</h4>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="badge px-3 py-1 rounded-full text-sm">Figma</span>
+                            <span class="badge px-3 py-1 rounded-full text-sm">UX/UI Design</span>
+                            <span class="badge px-3 py-1 rounded-full text-sm">Scrum</span>
+                            <span class="badge px-3 py-1 rounded-full text-sm">TDS Compliance</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Application Interface -->
+        <section class="py-12 border-t-2 border-custom">
+            <h2 class="text-3xl font-bold mb-8 section-title">Application Interface</h2>
+            
+            <div class="card p-8 rounded-lg">
+                <h3 class="text-2xl font-bold mb-4 text-center">Corporate Bulletin Board</h3>
+                <p class="text-muted font-medium mb-6 text-center">
+                    Interactive bulletin system for employee communication and knowledge sharing
+                </p>
+                <div class="flex justify-center">
+                    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/12a9f122-ec5d-496b-b4b5-e0b42931bd4d_rw_1920-9K2pcf1iedHAKkKS31td2uIShKHS2n.png" alt="Network2Day bulletin board interface showing interactive sticky notes for employee communication" class="max-w-full h-auto rounded-lg border-2 border-custom shadow-lg">
+                </div>
+                <div class="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
+                    <div class="p-4">
+                        <i data-lucide="message-circle" class="h-8 w-8 icon-primary mx-auto mb-2"></i>
+                        <h4 class="font-bold mb-1">Interactive Posts</h4>
+                        <p class="text-sm text-muted">Sticky note-style communication system</p>
+                    </div>
+                    <div class="p-4">
+                        <i data-lucide="users" class="h-8 w-8 icon-primary mx-auto mb-2"></i>
+                        <h4 class="font-bold mb-1">Knowledge Sharing</h4>
+                        <p class="text-sm text-muted">Skill swaps and expertise exchange</p>
+                    </div>
+                    <div class="p-4">
+                        <i data-lucide="coffee" class="h-8 w-8 icon-primary mx-auto mb-2"></i>
+                        <h4 class="font-bold mb-1">Social Connection</h4>
+                        <p class="text-sm text-muted">Informal meetups and networking</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Design Process -->
+        <section class="py-12 border-t-2 border-custom">
+            <h2 class="text-3xl font-bold mb-8 section-title">Design Process</h2>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div class="card p-6 rounded-lg">
+                    <h3 class="text-xl font-bold mb-4">Wireframe Development</h3>
+                    <div class="flex justify-center mb-4">
+                        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/d65372c5-720b-4fba-bb3b-8a55ac951fc6_rw_1920-gG2N60kiIPuIZXVBTNnNQ3Husfm2DN.png" alt="Hand-drawn wireframe for Network2Day Events page" class="max-w-full h-auto rounded-lg border border-custom">
+                    </div>
+                    <p class="text-muted">
+                        Created rapid wireframes combining low-fi sketches with detailed annotations to guide development within hackathon timeframe.
+                    </p>
+                </div>
+
+                <div class="card p-6 rounded-lg">
+                    <h3 class="text-xl font-bold mb-4">Key Features Designed</h3>
+                    <div class="space-y-3">
+                        <div class="flex items-center gap-3">
+                            <i data-lucide="calendar" class="h-5 w-5 icon-primary"></i>
+                            <span>Event management with filtering</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i data-lucide="map-pin" class="h-5 w-5 icon-primary"></i>
+                            <span>{"Who's in the Office"} tracking</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i data-lucide="message-square" class="h-5 w-5 icon-primary"></i>
+                            <span>Interactive bulletin board</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i data-lucide="users" class="h-5 w-5 icon-primary"></i>
+                            <span>Employee networking directory</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Impact -->
+        <section class="py-12 border-t-2 border-custom">
+            <h2 class="text-3xl font-bold mb-8 section-title">Impact & Results</h2>
+            <div class="card p-8 rounded-lg">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                    <div>
+                        <div class="flex justify-center mb-4">
+                            <i data-lucide="trophy" class="h-16 w-16 icon-primary"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-2">1st Place</h3>
+                        <p class="text-muted">Innovation Jam 2022 Winner</p>
+                    </div>
+                    <div>
+                        <div class="flex justify-center mb-4">
+                            <i data-lucide="users" class="h-16 w-16 icon-primary"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-2">Team Leadership</h3>
+                        <p class="text-muted">Scrum Master coordination</p>
+                    </div>
+                    <div>
+                        <div class="flex justify-center mb-4">
+                            <i data-lucide="building" class="h-16 w-16 icon-primary"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-2">Corporate Solution</h3>
+                        <p class="text-muted">Enhanced company culture</p>
+                    </div>
+                </div>
+                
+                <div class="mt-8 text-center">
+                    <p class="text-muted font-medium">
+                        Successfully designed and delivered a winning solution that addressed key challenges in corporate communication and employee engagement at Travelers.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action -->
+        <section class="py-12 border-t-2 border-custom text-center">
+            <h2 class="text-3xl font-bold mb-6 section-title">View Design Files</h2>
+            <p class="text-muted font-medium mb-8 max-w-2xl mx-auto">
+                Explore the complete Figma design system and wireframes that led our team to victory.
+            </p>
+            <div class="flex justify-center gap-4">
+                <a href="https://www.figma.com/design/f7ZAd3g9YkEovz1nK8f3Ir/Travelers?node-id=405-428" target="_blank" class="btn-primary px-8 py-4 rounded-md transition-colors flex items-center gap-2">
+                    <i data-lucide="external-link" class="h-5 w-5"></i>
+                    View Figma Design
+                </a>
+                <a href="index.html" class="btn-outline px-8 py-4 rounded-md transition-colors flex items-center gap-2">
+                    <i data-lucide="arrow-left" class="h-5 w-5"></i>
+                    Back to Portfolio
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="border-t-2 border-custom py-6 bg-alpine-oat">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-4">
+            <div class="flex items-center gap-2">
+                <i data-lucide="layers" class="h-5 w-5 icon-primary"></i>
+                <span class="font-bold">Kavya Jain</span>
+            </div>
+            <p class="text-sm text-muted font-medium">© 2024 Kavya Jain. All rights reserved.</p>
+            <div class="flex items-center gap-4">
+                <a href="https://www.linkedin.com/in/kavya2024/" target="_blank" class="text-muted hover:text-cherry-red transition-colors">
+                    <i data-lucide="linkedin" class="h-5 w-5"></i>
+                </a>
+                <a href="https://github.com/kavyajain" target="_blank" class="text-muted hover:text-cherry-red transition-colors">
+                    <i data-lucide="github" class="h-5 w-5"></i>
+                </a>
+                <a href="mailto:kavya_jain@yahoo.com" class="text-muted hover:text-cherry-red transition-colors">
+                    <i data-lucide="mail" class="h-5 w-5"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+    </script>
+</body>
+</html>
