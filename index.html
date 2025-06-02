@@ -10,13 +10,14 @@
         theme: {
             extend: {
                 colors: {
-                    'cherry-red': '#6B1D1D',
+                    'forest-green': '#2D5016',
+                    'sage-green': '#87A96B',
+                    'periwinkle': '#C5C5FF',
                     'butter-yellow': '#F5EDA3',
-                    'aura-indigo': '#B0A6DE',
-                    'dill-green': '#5F6B13',
-                    'alpine-oat': '#F0EDE3',
-                    'dark-cherry': '#4A1414',
-                    'light-cherry': '#8B2D2D'
+                    'cream': '#FEFDF8',
+                    'warm-gray': '#F8F6F0',
+                    'charcoal': '#2C2C2C',
+                    'soft-black': '#1A1A1A'
                 }
             }
         }
@@ -26,76 +27,110 @@
 <script src="https://unpkg.com/lucide@latest"></script>
 <style>
     body {
-        background-color: #FEFEFE;
+        background-color: #FEFDF8;
         color: #1A1A1A;
     }
     .card {
-        background-color: #F0EDE3;
-        border: 2px solid #6B1D1D;
-        box-shadow: 0 4px 6px -1px rgba(107, 29, 29, 0.1);
+        background-color: #F8F6F0;
+        border: 2px solid #E5E3DB;
+        box-shadow: 0 2px 8px rgba(45, 80, 22, 0.08);
+        transition: all 0.2s ease;
+    }
+    .card:hover {
+        box-shadow: 0 4px 12px rgba(45, 80, 22, 0.12);
+        transform: translateY(-1px);
     }
     .badge {
-        background-color: #B0A6DE;
+        background-color: #C5C5FF;
         color: #1A1A1A;
         font-weight: 600;
+        border: 1px solid #B0B0FF;
     }
     .badge-secondary {
         background-color: #F5EDA3;
         color: #1A1A1A;
         font-weight: 600;
+        border: 1px solid #E8D68A;
     }
     .text-muted {
-        color: #2D2D2D;
+        color: #2C2C2C;
     }
     .btn-primary {
-        background-color: #6B1D1D;
+        background-color: #2D5016;
         color: #FFFFFF;
-        border: 2px solid #6B1D1D;
+        border: 2px solid #2D5016;
         font-weight: 600;
+        transition: all 0.2s ease;
     }
     .btn-primary:hover {
-        background-color: #4A1414;
-        border-color: #4A1414;
+        background-color: #1F3A0F;
+        border-color: #1F3A0F;
+        transform: translateY(-1px);
+        box-shadow: 0 4px 8px rgba(45, 80, 22, 0.2);
     }
     .btn-outline {
         background-color: transparent;
-        color: #6B1D1D;
-        border: 2px solid #6B1D1D;
+        color: #2D5016;
+        border: 2px solid #2D5016;
         font-weight: 600;
+        transition: all 0.2s ease;
     }
     .btn-outline:hover {
-        background-color: #6B1D1D;
+        background-color: #2D5016;
         color: #FFFFFF;
+        transform: translateY(-1px);
+        box-shadow: 0 4px 8px rgba(45, 80, 22, 0.2);
     }
     .nav-link {
-        color: #2D2D2D;
+        color: #2C2C2C;
         font-weight: 500;
+        transition: color 0.2s ease;
     }
     .nav-link:hover {
-        color: #6B1D1D;
+        color: #2D5016;
     }
     .section-title {
-        color: #6B1D1D;
+        color: #2D5016;
         font-weight: 700;
     }
     .border-custom {
-        border-color: #6B1D1D;
+        border-color: #87A96B;
     }
     .icon-primary {
-        color: #6B1D1D;
+        color: #2D5016;
+    }
+    .icon-accent {
+        color: #C5C5FF;
     }
     .header-bg {
-        background-color: rgba(254, 254, 254, 0.95);
+        background-color: rgba(254, 253, 248, 0.95);
         backdrop-filter: blur(10px);
+        border-bottom: 2px solid #E5E3DB;
+    }
+    .accent-bg {
+        background: linear-gradient(135deg, #C5C5FF 0%, #F5EDA3 100%);
+    }
+    .natural-gradient {
+        background: linear-gradient(135deg, #87A96B 0%, #2D5016 100%);
+    }
+    /* Focus states for accessibility */
+    .btn-primary:focus, .btn-outline:focus {
+        outline: 3px solid #C5C5FF;
+        outline-offset: 2px;
+    }
+    .nav-link:focus {
+        outline: 2px solid #C5C5FF;
+        outline-offset: 2px;
+        border-radius: 4px;
     }
 </style>
 </head>
 <body>
 <!-- Navigation -->
-<header class="sticky top-0 z-40 w-full border-b-2 border-custom header-bg">
+<header class="sticky top-0 z-40 w-full header-bg">
     <div class="container mx-auto px-4 flex h-16 items-center justify-between">
         <div class="flex items-center gap-2">
-            <i data-lucide="layers" class="h-6 w-6 icon-primary"></i>
+            <i data-lucide="leaf" class="h-6 w-6 icon-primary"></i>
             <span class="font-bold text-xl">Kavya Jain</span>
         </div>
         <nav class="hidden md:flex items-center gap-6">
@@ -105,7 +140,7 @@
             <a href="#projects" class="nav-link">Projects</a>
             <a href="#contact" class="nav-link">Contact</a>
         </nav>
-        <a href="#contact" class="btn-primary px-4 py-2 rounded-md transition-colors">Get in touch</a>
+        <a href="#contact" class="btn-primary px-4 py-2 rounded-md">Get in touch</a>
     </div>
 </header>
 
@@ -114,21 +149,19 @@
     <section id="about" class="py-12 md:py-24 flex flex-col md:flex-row items-center gap-8">
         <div class="md:w-1/2 space-y-4">
             <h1 class="text-4xl md:text-5xl font-bold tracking-tight section-title">
-                Product-minded Engineer & Tech Leader
+                Building Technology for Social Impact & Human Flourishing
             </h1>
             <p class="text-xl text-muted font-medium">
-                Bridging the gap between technical expertise and user-centered product design
+                Product-minded engineer creating inclusive technology solutions that maximize positive impact for underserved communities
             </p>
             <div class="flex gap-4 pt-4">
-                <a href="#projects" class="btn-primary px-6 py-3 rounded-md transition-colors">View Projects</a>
-                <a href="/resume.pdf" target="_blank" class="btn-outline px-6 py-3 rounded-md transition-colors">Download Resume</a>
+                <a href="#projects" class="btn-primary px-6 py-3 rounded-md">View Projects</a>
+                <a href="resume.pdf" target="_blank" class="btn-outline px-6 py-3 rounded-md">Download Resume</a>
             </div>
         </div>
         <div class="md:w-1/2 flex justify-center">
-            <div class="relative w-64 h-64 rounded-full overflow-hidden border-4 border-custom">
-                <div class="w-full h-full bg-gradient-to-br from-aura-indigo to-butter-yellow flex items-center justify-center">
-                    <i data-lucide="user" class="h-32 w-32 text-cherry-red"></i>
-                </div>
+            <div class="relative w-64 h-64 rounded-full overflow-hidden border-4 border-sage-green">
+                <img src="images/profile-photo.jpg" alt="Kavya Jain profile photo" class="w-full h-full object-cover">
             </div>
         </div>
     </section>
@@ -241,7 +274,7 @@
                         </div>
                         <p class="text-muted font-medium">Girls Who Code, Self-Paced Program</p>
                     </div>
-                    <div class="text-sm font-bold text-cherry-red mt-2 md:mt-0">May 2024 – August 2024</div>
+                    <div class="text-sm font-bold text-forest-green mt-2 md:mt-0">May 2024 – August 2024</div>
                 </div>
                 <ul class="list-disc pl-5 space-y-2 text-muted">
                     <li>Facilitated Cybersecurity, Web Dev, and AI workshops and incorporated student feedback, which lead to an increase in female enrollment in computer science (7 times national average)</li>
@@ -258,7 +291,7 @@
                         </div>
                         <p class="text-muted font-medium">Technology Club Financial Advisor, Coral Gables, Florida</p>
                     </div>
-                    <div class="text-sm font-bold text-cherry-red mt-2 md:mt-0">February 2023 – December 2024</div>
+                    <div class="text-sm font-bold text-forest-green mt-2 md:mt-0">February 2023 – December 2024</div>
                 </div>
                 <ul class="list-disc pl-5 space-y-2 text-muted">
                     <li>Financial advisor and cross-functional liaison for all three tech clubs: Kappa Theta Pi (founding member), the Society of Hispanic Professional Engineers, and the Google Developer Student Club</li>
@@ -274,7 +307,7 @@
                         </div>
                         <p class="text-muted font-medium">National Science Foundation's Research Experience for Undergraduates, University of Miami</p>
                     </div>
-                    <div class="text-sm font-bold text-cherry-red mt-2 md:mt-0">May 2023 – August 2023</div>
+                    <div class="text-sm font-bold text-forest-green mt-2 md:mt-0">May 2023 – August 2023</div>
                 </div>
                 <ul class="list-disc pl-5 space-y-2 text-muted">
                     <li>Designed and implemented a novel machine learning model, utilizing ResNet18 and binary classification to accurately predict the predominant language of speech by transforming audio files into spectrograms and leveraging image-based recognition techniques, with 70% accuracy</li>
@@ -291,7 +324,7 @@
                         </div>
                         <p class="text-muted font-medium">UHack (University of Miami Hackathon), Coral Gables, Florida</p>
                     </div>
-                    <div class="text-sm font-bold text-cherry-red mt-2 md:mt-0">September 2022 – May 2023</div>
+                    <div class="text-sm font-bold text-forest-green mt-2 md:mt-0">September 2022 – May 2023</div>
                 </div>
                 <ul class="list-disc pl-5 space-y-2 text-muted">
                     <li>Re-established UHack at UM for the first time in 5 years</li>
@@ -309,7 +342,7 @@
                         </div>
                         <p class="text-muted font-medium">The Travelers Insurance Company, Technology Leadership Development Program, Hartford, Connecticut</p>
                     </div>
-                    <div class="text-sm font-bold text-cherry-red mt-2 md:mt-0">June 2022 – August 2022</div>
+                    <div class="text-sm font-bold text-forest-green mt-2 md:mt-0">June 2022 – August 2022</div>
                 </div>
                 <ul class="list-disc pl-5 space-y-2 text-muted">
                     <li>Completed several Agile User Stories in Risk Management Information Services</li>
@@ -325,12 +358,12 @@
         <h2 class="text-3xl font-bold mb-8 section-title">Featured Projects</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div class="card rounded-lg overflow-hidden">
-                <div class="h-48 w-full bg-gradient-to-br from-aura-indigo to-butter-yellow flex items-center justify-center">
-                    <i data-lucide="brain" class="h-16 w-16 text-cherry-red"></i>
+                <div class="h-48 w-full natural-gradient flex items-center justify-center">
+                    <i data-lucide="brain" class="h-16 w-16 text-white"></i>
                 </div>
                 <div class="p-6">
                     <h3 class="text-xl font-bold mb-2">Language Detection ML Model</h3>
-                    <p class="text-sm font-medium text-cherry-red mb-4">Machine Learning & Audio Processing</p>
+                    <p class="text-sm font-medium text-forest-green mb-4">Machine Learning & Audio Processing</p>
                     <p class="text-muted mb-4">
                         A novel machine learning model utilizing ResNet18 and binary classification to predict the predominant language of speech by transforming audio files into spectrograms.
                     </p>
@@ -341,7 +374,7 @@
                         <span class="badge px-2 py-1 rounded text-xs">STFT</span>
                     </div>
                     <div class="flex gap-2">
-                        <a href="REU_Posters-Kavya-3.pdf" target="_blank" class="btn-outline px-4 py-2 rounded text-sm transition-colors flex items-center gap-1">
+                        <a href="REU_Posters-Kavya-3.pdf" target="_blank" class="btn-outline px-4 py-2 rounded text-sm flex items-center gap-1">
                             <i data-lucide="file-text" class="h-4 w-4"></i>
                             View Research Paper
                         </a>
@@ -350,12 +383,12 @@
             </div>
 
             <div class="card rounded-lg overflow-hidden">
-                <div class="h-48 w-full bg-gradient-to-br from-cherry-red to-butter-yellow flex items-center justify-center">
-                    <i data-lucide="trophy" class="h-16 w-16 text-white"></i>
+                <div class="h-48 w-full accent-bg flex items-center justify-center">
+                    <i data-lucide="trophy" class="h-16 w-16 text-forest-green"></i>
                 </div>
                 <div class="p-6">
                     <h3 class="text-xl font-bold mb-2">Network2Day - Hackathon Winner</h3>
-                    <p class="text-sm font-medium text-cherry-red mb-4">UX/UI Design & Scrum Leadership</p>
+                    <p class="text-sm font-medium text-forest-green mb-4">UX/UI Design & Scrum Leadership</p>
                     <p class="text-muted mb-4">
                         Winner of Travelers Innovation Jam 2022. Led team as Scrum Master and Lead UX/UI designer to create a web app improving company culture and knowledge sharing.
                     </p>
@@ -366,7 +399,7 @@
                         <span class="badge px-2 py-1 rounded text-xs">Team Leadership</span>
                     </div>
                     <div class="flex gap-2">
-                        <a href="network2day.html" target="_blank" class="btn-outline px-4 py-2 rounded text-sm transition-colors flex items-center gap-1">
+                        <a href="network2day.html" target="_blank" class="btn-outline px-4 py-2 rounded text-sm flex items-center gap-1">
                             <i data-lucide="external-link" class="h-4 w-4"></i>
                             View Project
                         </a>
@@ -375,12 +408,12 @@
             </div>
 
             <div class="card rounded-lg overflow-hidden">
-                <div class="h-48 w-full bg-gradient-to-br from-butter-yellow to-cherry-red flex items-center justify-center">
+                <div class="h-48 w-full bg-gradient-to-br from-sage-green to-periwinkle flex items-center justify-center">
                     <i data-lucide="globe" class="h-16 w-16 text-white"></i>
                 </div>
                 <div class="p-6">
                     <h3 class="text-xl font-bold mb-2">Bolo - South Asian Language Learning App</h3>
-                    <p class="text-sm font-medium text-cherry-red mb-4">Product Strategy & UX Design</p>
+                    <p class="text-sm font-medium text-forest-green mb-4">Product Strategy & UX Design</p>
                     <p class="text-muted mb-4">
                         Comprehensive business case and app design for South Asian language learning, targeting 5.4M diaspora Americans with culturally-relevant, situation-based lessons.
                     </p>
@@ -391,7 +424,7 @@
                         <span class="badge px-2 py-1 rounded text-xs">Market Analysis</span>
                     </div>
                     <div class="flex gap-2">
-                        <a href="bolo-app.html" target="_blank" class="btn-outline px-4 py-2 rounded text-sm transition-colors flex items-center gap-1">
+                        <a href="bolo-app.html" target="_blank" class="btn-outline px-4 py-2 rounded text-sm flex items-center gap-1">
                             <i data-lucide="external-link" class="h-4 w-4"></i>
                             View Project
                         </a>
@@ -400,12 +433,12 @@
             </div>
 
             <div class="card rounded-lg overflow-hidden">
-                <div class="h-48 w-full bg-gradient-to-br from-purple-400 to-purple-600 flex items-center justify-center">
+                <div class="h-48 w-full bg-gradient-to-br from-purple-400 to-periwinkle flex items-center justify-center">
                     <i data-lucide="zap" class="h-16 w-16 text-white"></i>
                 </div>
                 <div class="p-6">
                     <h3 class="text-xl font-bold mb-2">GSR Lie Detector - Two Truths & A Lie</h3>
-                    <p class="text-sm font-medium text-cherry-red mb-4">Physical Computing & IoT</p>
+                    <p class="text-sm font-medium text-forest-green mb-4">Physical Computing & IoT</p>
                     <p class="text-muted mb-4">
                         A physical computing project using GSR sensors to detect emotional responses during a "Two Truths and a Lie" game, with 3D printed enclosure and Arduino programming.
                     </p>
@@ -416,7 +449,7 @@
                         <span class="badge px-2 py-1 rounded text-xs">3D Printing</span>
                     </div>
                     <div class="flex gap-2">
-                        <a href="gsr-lie-detector.html" target="_blank" class="btn-outline px-4 py-2 rounded text-sm transition-colors flex items-center gap-1">
+                        <a href="gsr-lie-detector.html" target="_blank" class="btn-outline px-4 py-2 rounded text-sm flex items-center gap-1">
                             <i data-lucide="external-link" class="h-4 w-4"></i>
                             View Project
                         </a>
@@ -425,12 +458,12 @@
             </div>
 
             <div class="card rounded-lg overflow-hidden">
-                <div class="h-48 w-full bg-gradient-to-br from-yellow-400 to-yellow-600 flex items-center justify-center">
-                    <i data-lucide="coins" class="h-16 w-16 text-white"></i>
+                <div class="h-48 w-full bg-gradient-to-br from-butter-yellow to-sage-green flex items-center justify-center">
+                    <i data-lucide="coins" class="h-16 w-16 text-forest-green"></i>
                 </div>
                 <div class="p-6">
                     <h3 class="text-xl font-bold mb-2">La Criptovaluta - Cryptocurrency in Italian</h3>
-                    <p class="text-sm font-medium text-cherry-red mb-4">Technical Communication & Language</p>
+                    <p class="text-sm font-medium text-forest-green mb-4">Technical Communication & Language</p>
                     <p class="text-muted mb-4">
                         A presentation on cryptocurrency delivered entirely in Italian, abstracting complex computer science concepts for everyday Italian speakers.
                     </p>
@@ -441,7 +474,7 @@
                         <span class="badge px-2 py-1 rounded text-xs">Cross-Cultural</span>
                     </div>
                     <div class="flex gap-2">
-                        <a href="la-criptovaluta.html" target="_blank" class="btn-outline px-4 py-2 rounded text-sm transition-colors flex items-center gap-1">
+                        <a href="la-criptovaluta.html" target="_blank" class="btn-outline px-4 py-2 rounded text-sm flex items-center gap-1">
                             <i data-lucide="external-link" class="h-4 w-4"></i>
                             View Project
                         </a>
@@ -450,12 +483,12 @@
             </div>
 
             <div class="card rounded-lg overflow-hidden">
-                <div class="h-48 w-full bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center">
+                <div class="h-48 w-full bg-gradient-to-br from-charcoal to-sage-green flex items-center justify-center">
                     <i data-lucide="terminal" class="h-16 w-16 text-white"></i>
                 </div>
                 <div class="p-6">
                     <h3 class="text-xl font-bold mb-2">Stream Editor - C Programming</h3>
-                    <p class="text-sm font-medium text-cherry-red mb-4">Systems Programming & File I/O</p>
+                    <p class="text-sm font-medium text-forest-green mb-4">Systems Programming & File I/O</p>
                     <p class="text-muted mb-4">
                         A command-line stream editor written in C that processes text input according to edit commands, featuring line range specifications and multiple edit operations.
                     </p>
@@ -466,7 +499,7 @@
                         <span class="badge px-2 py-1 rounded text-xs">Data Structures</span>
                     </div>
                     <div class="flex gap-2">
-                        <a href="stream-editor.html" target="_blank" class="btn-outline px-4 py-2 rounded text-sm transition-colors flex items-center gap-1">
+                        <a href="stream-editor.html" target="_blank" class="btn-outline px-4 py-2 rounded text-sm flex items-center gap-1">
                             <i data-lucide="external-link" class="h-4 w-4"></i>
                             View Project
                         </a>
@@ -475,12 +508,12 @@
             </div>
 
             <div class="card rounded-lg overflow-hidden">
-                <div class="h-48 w-full bg-gradient-to-br from-green-400 to-green-600 flex items-center justify-center">
-                    <i data-lucide="utensils" class="h-16 w-16 text-white"></i>
+                <div class="h-48 w-full bg-gradient-to-br from-sage-green to-butter-yellow flex items-center justify-center">
+                    <i data-lucide="utensils" class="h-16 w-16 text-forest-green"></i>
                 </div>
                 <div class="p-6">
                     <h3 class="text-xl font-bold mb-2">Carpe Cibum - Food Waste Reduction App</h3>
-                    <p class="text-sm font-medium text-cherry-red mb-4">Software Engineering Design</p>
+                    <p class="text-sm font-medium text-forest-green mb-4">Software Engineering Design</p>
                     <p class="text-muted mb-4">
                         End-to-end application design reducing food waste by connecting students with discounted prepared food from local venues before closing time.
                     </p>
@@ -491,7 +524,7 @@
                         <span class="badge px-2 py-1 rounded text-xs">Project Management</span>
                     </div>
                     <div class="flex gap-2">
-                        <a href="carpe-cibum.html" target="_blank" class="btn-outline px-4 py-2 rounded text-sm transition-colors flex items-center gap-1">
+                        <a href="carpe-cibum.html" target="_blank" class="btn-outline px-4 py-2 rounded text-sm flex items-center gap-1">
                             <i data-lucide="external-link" class="h-4 w-4"></i>
                             View Project
                         </a>
@@ -500,12 +533,12 @@
             </div>
 
             <div class="card rounded-lg overflow-hidden">
-                <div class="h-48 w-full bg-gradient-to-br from-pink-300 to-pink-500 flex items-center justify-center">
-                    <i data-lucide="chef-hat" class="h-16 w-16 text-white"></i>
+                <div class="h-48 w-full bg-gradient-to-br from-periwinkle to-butter-yellow flex items-center justify-center">
+                    <i data-lucide="chef-hat" class="h-16 w-16 text-forest-green"></i>
                 </div>
                 <div class="p-6">
                     <h3 class="text-xl font-bold mb-2">Monochromatic Meals - KavyaPedia</h3>
-                    <p class="text-sm font-medium text-cherry-red mb-4">Web Design & UI/UX</p>
+                    <p class="text-sm font-medium text-forest-green mb-4">Web Design & UI/UX</p>
                     <p class="text-muted mb-4">
                         A desktop recipe website showcasing monochromatic pink design principles with interactive components and cohesive color theory application.
                     </p>
@@ -516,7 +549,7 @@
                         <span class="badge px-2 py-1 rounded text-xs">UI Components</span>
                     </div>
                     <div class="flex gap-2">
-                        <a href="monochromatic-meals.html" target="_blank" class="btn-outline px-4 py-2 rounded text-sm transition-colors flex items-center gap-1">
+                        <a href="monochromatic-meals.html" target="_blank" class="btn-outline px-4 py-2 rounded text-sm flex items-center gap-1">
                             <i data-lucide="external-link" class="h-4 w-4"></i>
                             View Project
                         </a>
@@ -525,12 +558,12 @@
             </div>
 
             <div class="card rounded-lg overflow-hidden">
-                <div class="h-48 w-full bg-gradient-to-br from-dill-green to-butter-yellow flex items-center justify-center">
+                <div class="h-48 w-full natural-gradient flex items-center justify-center">
                     <i data-lucide="cloud-snow" class="h-16 w-16 text-white"></i>
                 </div>
                 <div class="p-6">
                     <h3 class="text-xl font-bold mb-2">Plant Protector Weather Alert System</h3>
-                    <p class="text-sm font-medium text-cherry-red mb-4">Python & API Integration</p>
+                    <p class="text-sm font-medium text-forest-green mb-4">Python & API Integration</p>
                     <p class="text-muted mb-4">
                         Automated SMS alert system using Twilio and OpenWeather APIs to protect plants from unexpected freezes in Houston's unpredictable spring weather.
                     </p>
@@ -541,7 +574,7 @@
                         <span class="badge px-2 py-1 rounded text-xs">Automation</span>
                     </div>
                     <div class="flex gap-2">
-                        <a href="plant-protector.html" target="_blank" class="btn-outline px-4 py-2 rounded text-sm transition-colors flex items-center gap-1">
+                        <a href="plant-protector.html" target="_blank" class="btn-outline px-4 py-2 rounded text-sm flex items-center gap-1">
                             <i data-lucide="external-link" class="h-4 w-4"></i>
                             View Project
                         </a>
@@ -550,12 +583,12 @@
             </div>
 
             <div class="card rounded-lg overflow-hidden">
-                <div class="h-48 w-full bg-gradient-to-br from-cherry-red to-aura-indigo flex items-center justify-center">
-                    <i data-lucide="calendar" class="h-16 w-16 text-white"></i>
+                <div class="h-48 w-full accent-bg flex items-center justify-center">
+                    <i data-lucide="calendar" class="h-16 w-16 text-forest-green"></i>
                 </div>
                 <div class="p-6">
                     <h3 class="text-xl font-bold mb-2">UHack 2023 - Hackathon Revival</h3>
-                    <p class="text-sm font-medium text-cherry-red mb-4">Event Management & Leadership</p>
+                    <p class="text-sm font-medium text-forest-green mb-4">Event Management & Leadership</p>
                     <p class="text-muted mb-4">
                         Lead organizer who revived University of Miami's hackathon after a 5-year hiatus, managing everything from budget to stakeholder relations for 30+ participants.
                     </p>
@@ -566,7 +599,7 @@
                         <span class="badge px-2 py-1 rounded text-xs">Team Leadership</span>
                     </div>
                     <div class="flex gap-2">
-                        <a href="uhack-2023.html" target="_blank" class="btn-outline px-4 py-2 rounded text-sm transition-colors flex items-center gap-1">
+                        <a href="uhack-2023.html" target="_blank" class="btn-outline px-4 py-2 rounded text-sm flex items-center gap-1">
                             <i data-lucide="external-link" class="h-4 w-4"></i>
                             View Project
                         </a>
@@ -575,12 +608,12 @@
             </div>
 
             <div class="card rounded-lg overflow-hidden">
-                <div class="h-48 w-full bg-gradient-to-br from-butter-yellow to-aura-indigo flex items-center justify-center">
-                    <i data-lucide="smartphone" class="h-16 w-16 text-cherry-red"></i>
+                <div class="h-48 w-full bg-gradient-to-br from-butter-yellow to-periwinkle flex items-center justify-center">
+                    <i data-lucide="smartphone" class="h-16 w-16 text-forest-green"></i>
                 </div>
                 <div class="p-6">
                     <h3 class="text-xl font-bold mb-2">Adventure Awaits App Prototype</h3>
-                    <p class="text-sm font-medium text-cherry-red mb-4">UX/UI Design & Prototyping</p>
+                    <p class="text-sm font-medium text-forest-green mb-4">UX/UI Design & Prototyping</p>
                     <p class="text-muted mb-4">
                         A fully functioning, elegant, and reactive application prototype designed to help users keep track of and accomplish goals in a simple and engaging way.
                     </p>
@@ -591,7 +624,7 @@
                         <span class="badge px-2 py-1 rounded text-xs">User Testing</span>
                     </div>
                     <div class="flex gap-2">
-                        <a href="adventure-awaits.html" target="_blank" class="btn-outline px-4 py-2 rounded text-sm transition-colors flex items-center gap-1">
+                        <a href="adventure-awaits.html" target="_blank" class="btn-outline px-4 py-2 rounded text-sm flex items-center gap-1">
                             <i data-lucide="external-link" class="h-4 w-4"></i>
                             View Project
                         </a>
@@ -600,12 +633,12 @@
             </div>
 
             <div class="card rounded-lg overflow-hidden">
-                <div class="h-48 w-full bg-gradient-to-br from-dill-green to-cherry-red flex items-center justify-center">
+                <div class="h-48 w-full natural-gradient flex items-center justify-center">
                     <i data-lucide="gamepad-2" class="h-16 w-16 text-white"></i>
                 </div>
                 <div class="p-6">
                     <h3 class="text-xl font-bold mb-2">Play Coconut Game</h3>
-                    <p class="text-sm font-medium text-cherry-red mb-4">Game Development & Unity</p>
+                    <p class="text-sm font-medium text-forest-green mb-4">Game Development & Unity</p>
                     <p class="text-muted mb-4">
                         An interactive 3D game where players collect coconuts through collisions and clicks before time runs out, featuring multiple scenes and engaging gameplay mechanics.
                     </p>
@@ -616,7 +649,7 @@
                         <span class="badge px-2 py-1 rounded text-xs">Game Design</span>
                     </div>
                     <div class="flex gap-2">
-                        <a href="play-coconut.html" target="_blank" class="btn-outline px-4 py-2 rounded text-sm transition-colors flex items-center gap-1">
+                        <a href="play-coconut.html" target="_blank" class="btn-outline px-4 py-2 rounded text-sm flex items-center gap-1">
                             <i data-lucide="external-link" class="h-4 w-4"></i>
                             View Project
                         </a>
@@ -671,74 +704,46 @@
     <!-- Contact Section -->
     <section id="contact" class="py-12 border-t-2 border-custom">
         <h2 class="text-3xl font-bold mb-8 section-title">Get In Touch</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div class="card p-6 rounded-lg">
-                <h3 class="text-xl font-bold mb-2">Contact Information</h3>
-                <p class="text-muted mb-4 font-medium">Feel free to reach out through any of these channels</p>
-                <div class="space-y-4">
-                    <div class="flex items-center gap-3">
-                        <i data-lucide="mail" class="h-5 w-5 icon-primary"></i>
-                        <a href="mailto:kavya_jain@yahoo.com" class="hover:underline font-medium">kavya_jain@yahoo.com</a>
-                    </div>
-                    <div class="flex items-center gap-3">
-                        <i data-lucide="linkedin" class="h-5 w-5 icon-primary"></i>
-                        <a href="https://www.linkedin.com/in/kavya2024/" target="_blank" class="hover:underline font-medium">linkedin.com/in/kavya2024</a>
-                    </div>
-                    <div class="flex items-center gap-3">
-                        <i data-lucide="github" class="h-5 w-5 icon-primary"></i>
-                        <a href="https://github.com/kavyajain" target="_blank" class="hover:underline font-medium">github.com/kavyajain</a>
-                    </div>
-                    <div class="flex items-center gap-3">
-                        <i data-lucide="phone" class="h-5 w-5 icon-primary"></i>
-                        <span class="font-medium">860-331-6206</span>
-                    </div>
+        <div class="card p-6 rounded-lg max-w-2xl mx-auto">
+            <h3 class="text-xl font-bold mb-2 text-center">Contact Information</h3>
+            <p class="text-muted mb-6 font-medium text-center">Feel free to reach out through any of these channels</p>
+            <div class="space-y-4">
+                <div class="flex items-center justify-center gap-3">
+                    <i data-lucide="mail" class="h-5 w-5 icon-primary"></i>
+                    <a href="mailto:kavya_jain@yahoo.com" class="hover:underline font-medium">kavya_jain@yahoo.com</a>
                 </div>
-            </div>
-
-            <div class="card p-6 rounded-lg">
-                <h3 class="text-xl font-bold mb-2">Send a Message</h3>
-                <p class="text-muted mb-4 font-medium">I'll get back to you as soon as possible</p>
-                <form class="space-y-4">
-                    <div class="grid grid-cols-2 gap-4">
-                        <div class="space-y-2">
-                            <label for="name" class="text-sm font-bold">Name</label>
-                            <input id="name" class="w-full px-3 py-2 border-2 border-custom rounded-md focus:outline-none focus:ring-2 focus:ring-cherry-red" placeholder="Your name">
-                        </div>
-                        <div class="space-y-2">
-                            <label for="email" class="text-sm font-bold">Email</label>
-                            <input id="email" type="email" class="w-full px-3 py-2 border-2 border-custom rounded-md focus:outline-none focus:ring-2 focus:ring-cherry-red" placeholder="Your email">
-                        </div>
-                    </div>
-                    <div class="space-y-2">
-                        <label for="subject" class="text-sm font-bold">Subject</label>
-                        <input id="subject" class="w-full px-3 py-2 border-2 border-custom rounded-md focus:outline-none focus:ring-2 focus:ring-cherry-red" placeholder="Subject of your message">
-                    </div>
-                    <div class="space-y-2">
-                        <label for="message" class="text-sm font-bold">Message</label>
-                        <textarea id="message" rows="4" class="w-full px-3 py-2 border-2 border-custom rounded-md focus:outline-none focus:ring-2 focus:ring-cherry-red" placeholder="Your message"></textarea>
-                    </div>
-                    <button type="submit" class="btn-primary w-full py-3 rounded-md transition-colors">Send Message</button>
-                </form>
+                <div class="flex items-center justify-center gap-3">
+                    <i data-lucide="linkedin" class="h-5 w-5 icon-primary"></i>
+                    <a href="https://www.linkedin.com/in/kavya2024/" target="_blank" class="hover:underline font-medium">linkedin.com/in/kavya2024</a>
+                </div>
+                <div class="flex items-center justify-center gap-3">
+                    <i data-lucide="github" class="h-5 w-5 icon-primary"></i>
+                    <a href="https://github.com/kavyajain99" target="_blank" class="hover:underline font-medium">github.com/kavyajain99</a>
+                </div>
+                <div class="flex items-center justify-center gap-3">
+                    <i data-lucide="phone" class="h-5 w-5 icon-primary"></i>
+                    <span class="font-medium">860-331-6206</span>
+                </div>
             </div>
         </div>
     </section>
 </main>
 
-<footer class="border-t-2 border-custom py-6 bg-alpine-oat">
+<footer class="border-t-2 border-custom py-6 bg-warm-gray">
     <div class="container mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-4">
         <div class="flex items-center gap-2">
-            <i data-lucide="layers" class="h-5 w-5 icon-primary"></i>
+            <i data-lucide="leaf" class="h-5 w-5 icon-primary"></i>
             <span class="font-bold">Kavya Jain</span>
         </div>
         <p class="text-sm text-muted font-medium">© 2024 Kavya Jain. All rights reserved.</p>
         <div class="flex items-center gap-4">
-            <a href="https://www.linkedin.com/in/kavya2024/" target="_blank" class="text-muted hover:text-cherry-red transition-colors">
+            <a href="https://www.linkedin.com/in/kavya2024/" target="_blank" class="text-muted hover:text-forest-green transition-colors">
                 <i data-lucide="linkedin" class="h-5 w-5"></i>
             </a>
-            <a href="https://github.com/kavyajain" target="_blank" class="text-muted hover:text-cherry-red transition-colors">
+            <a href="https://github.com/kavyajain99" target="_blank" class="text-muted hover:text-forest-green transition-colors">
                 <i data-lucide="github" class="h-5 w-5"></i>
             </a>
-            <a href="mailto:kavya_jain@yahoo.com" class="text-muted hover:text-cherry-red transition-colors">
+            <a href="mailto:kavya_jain@yahoo.com" class="text-muted hover:text-forest-green transition-colors">
                 <i data-lucide="mail" class="h-5 w-5"></i>
             </a>
         </div>
