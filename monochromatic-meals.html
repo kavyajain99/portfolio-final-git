@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monochromatic Meals - KavyaPedia - Kavya Jain</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'cherry-red': '#6B1D1D',
+                        'butter-yellow': '#F5EDA3',
+                        'aura-indigo': '#B0A6DE',
+                        'dill-green': '#5F6B13',
+                        'alpine-oat': '#F0EDE3',
+                        'dark-cherry': '#4A1414',
+                        'light-cherry': '#8B2D2D'
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/lucide/0.263.1/lucide.min.css" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body {
+            background-color: #FEFEFE;
+            color: #1A1A1A;
+        }
+        .card {
+            background-color: #F0EDE3;
+            border: 2px solid #6B1D1D;
+            box-shadow: 0 4px 6px -1px rgba(107, 29, 29, 0.1);
+        }
+        .badge {
+            background-color: #B0A6DE;
+            color: #1A1A1A;
+            font-weight: 600;
+        }
+        .text-muted {
+            color: #2D2D2D;
+        }
+        .btn-primary {
+            background-color: #6B1D1D;
+            color: #FFFFFF;
+            border: 2px solid #6B1D1D;
+            font-weight: 600;
+        }
+        .btn-primary:hover {
+            background-color: #4A1414;
+            border-color: #4A1414;
+        }
+        .btn-outline {
+            background-color: transparent;
+            color: #6B1D1D;
+            border: 2px solid #6B1D1D;
+            font-weight: 600;
+        }
+        .btn-outline:hover {
+            background-color: #6B1D1D;
+            color: #FFFFFF;
+        }
+        .nav-link {
+            color: #2D2D2D;
+            font-weight: 500;
+        }
+        .nav-link:hover {
+            color: #6B1D1D;
+        }
+        .section-title {
+            color: #6B1D1D;
+            font-weight: 700;
+        }
+        .border-custom {
+            border-color: #6B1D1D;
+        }
+        .icon-primary {
+            color: #6B1D1D;
+        }
+        .header-bg {
+            background-color: rgba(254, 254, 254, 0.95);
+            backdrop-filter: blur(10px);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <header class="sticky top-0 z-40 w-full border-b-2 border-custom header-bg">
+        <div class="container mx-auto px-4 flex h-16 items-center justify-between">
+            <div class="flex items-center gap-4">
+                <a href="index.html" class="flex items-center gap-2 nav-link hover:text-cherry-red transition-colors">
+                    <i data-lucide="arrow-left" class="h-5 w-5"></i>
+                    <span class="font-medium">Back to Portfolio</span>
+                </a>
+            </div>
+            <div class="flex items-center gap-2">
+                <i data-lucide="layers" class="h-6 w-6 icon-primary"></i>
+                <span class="font-bold text-xl">Kavya Jain</span>
+            </div>
+            <div class="w-32"></div>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-10">
+        <!-- Project Header -->
+        <section class="py-12 text-center">
+            <div class="flex justify-center items-center gap-3 mb-4">
+                <i data-lucide="chef-hat" class="h-12 w-12 text-pink-500"></i>
+                <h1 class="text-4xl md:text-5xl font-bold tracking-tight section-title">
+                    Monochromatic Meals
+                </h1>
+            </div>
+            <p class="text-xl text-muted font-medium mb-2">
+                KavyaPedia - A Monochromatic Pink Recipe Website
+            </p>
+            <p class="text-lg text-muted mb-6">
+                Web Design • UI/UX • Color Theory • Figma
+            </p>
+        </section>
+
+        <!-- Project Overview -->
+        <section class="py-12 border-t-2 border-custom">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-3xl font-bold mb-8 section-title text-center">Project Overview</h2>
+                <div class="card p-8 rounded-lg mb-8">
+                    <p class="text-muted font-medium text-lg text-center mb-6">
+                        A desktop recipe website showcasing monochromatic pink design principles with interactive components and cohesive color theory application.
+                    </p>
+                    <div class="flex justify-center gap-2 mb-6">
+                        <span class="badge px-3 py-1 rounded-full text-sm">Figma</span>
+                        <span class="badge px-3 py-1 rounded-full text-sm">Web Design</span>
+                        <span class="badge px-3 py-1 rounded-full text-sm">Color Theory</span>
+                        <span class="badge px-3 py-1 rounded-full text-sm">UI Components</span>
+                    </div>
+                </div>
+
+                <!-- Website Design -->
+                <div class="card p-6 rounded-lg mb-8">
+                    <div class="mb-6">
+                        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-pi6qug0OeYLDyHhAMP3hs0mTK4mftG.png" alt="KavyaPedia monochromatic pink recipe website interface" class="w-full rounded-lg border-2 border-pink-200">
+                    </div>
+                    <p class="text-muted text-center">
+                        The KavyaPedia interface demonstrates a cohesive monochromatic pink design with clean navigation, interactive elements, and a focus on pink-themed recipe content.
+                    </p>
+                </div>
+
+                <!-- Key Features -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                    <div class="card p-6 rounded-lg text-center">
+                        <i data-lucide="palette" class="h-8 w-8 text-pink-500 mx-auto mb-3"></i>
+                        <h3 class="font-bold mb-2">Monochromatic Design</h3>
+                        <p class="text-muted text-sm">Cohesive pink color scheme with various tints and shades</p>
+                    </div>
+                    <div class="card p-6 rounded-lg text-center">
+                        <i data-lucide="mouse-pointer" class="h-8 w-8 text-pink-500 mx-auto mb-3"></i>
+                        <h3 class="font-bold mb-2">Interactive Elements</h3>
+                        <p class="text-muted text-sm">Engaging components with hover states and smooth transitions</p>
+                    </div>
+                    <div class="card p-6 rounded-lg text-center">
+                        <i data-lucide="layout" class="h-8 w-8 text-pink-500 mx-auto mb-3"></i>
+                        <h3 class="font-bold mb-2">Clean Layout</h3>
+                        <p class="text-muted text-sm">Organized navigation and content structure for optimal UX</p>
+                    </div>
+                </div>
+
+                <!-- Call to Action -->
+                <div class="text-center">
+                    <a href="https://www.figma.com/proto/PJspgyaGW7bxh9DkducF0X/Assignment-2---Mock-up?kind=proto&node-id=63-213&page-id=63%3A98&scaling=scale-down&show-proto-sidebar=1&starting-point-node-id=63%3A272" target="_blank" class="btn-primary px-8 py-4 rounded-md transition-colors inline-flex items-center gap-2">
+                        <i data-lucide="external-link" class="h-5 w-5"></i>
+                        View Interactive Prototype
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="border-t-2 border-custom py-6 bg-alpine-oat">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-4">
+            <div class="flex items-center gap-2">
+                <i data-lucide="layers" class="h-5 w-5 icon-primary"></i>
+                <span class="font-bold">Kavya Jain</span>
+            </div>
+            <p class="text-sm text-muted font-medium">© 2024 Kavya Jain. All rights reserved.</p>
+            <div class="flex items-center gap-4">
+                <a href="https://www.linkedin.com/in/kavya2024/" target="_blank" class="text-muted hover:text-cherry-red transition-colors">
+                    <i data-lucide="linkedin" class="h-5 w-5"></i>
+                </a>
+                <a href="https://github.com/kavyajain" target="_blank" class="text-muted hover:text-cherry-red transition-colors">
+                    <i data-lucide="github" class="h-5 w-5"></i>
+                </a>
+                <a href="mailto:kavya_jain@yahoo.com" class="text-muted hover:text-cherry-red transition-colors">
+                    <i data-lucide="mail" class="h-5 w-5"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
