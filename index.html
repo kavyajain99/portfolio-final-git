@@ -3,12 +3,37 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kavya Jain - Portfolio</title>
+
+<!-- SEO Meta Tags -->
+<title>Kavya Jain - Product Manager | UX Designer | Computer Science Graduate</title>
+<meta name="description" content="Kavya Jain is an aspiring Product Manager and Computer Science graduate with expertise in UX/UI design, machine learning, and team leadership. View my portfolio showcasing hackathon wins, technical projects, and product strategy work.">
+<meta name="keywords" content="product manager, UX designer, computer science graduate, UI/UX design, machine learning, software engineering, product strategy, team leadership, hackathon winner, Figma, Python, Java, portfolio">
+<meta name="author" content="Kavya Jain">
+<meta name="robots" content="index, follow">
+
+<!-- Open Graph Meta Tags for Social Media -->
+<meta property="og:title" content="Kavya Jain - Product Manager | UX Designer | Computer Science Graduate">
+<meta property="og:description" content="Aspiring Product Manager with Computer Science background, specializing in UX/UI design, machine learning, and effective altruism-focused product development.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://kavyajain99.github.io/portfolio-final-git/">
+<meta property="og:image" content="https://kavyajain99.github.io/portfolio-final-git/images/profile-photo.jpg">
+<meta property="og:site_name" content="Kavya Jain Portfolio">
+
+<!-- Twitter Card Meta Tags -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Kavya Jain - Product Manager | UX Designer | Computer Science Graduate">
+<meta name="twitter:description" content="Aspiring Product Manager with Computer Science background, specializing in UX/UI design, machine learning, and effective altruism-focused product development.">
+<meta name="twitter:image" content="https://kavyajain99.github.io/portfolio-final-git/images/profile-photo.jpg">
+
+<!-- Canonical URL -->
+<link rel="canonical" href="https://kavyajain99.github.io/portfolio-final-git/">
+
 <!-- Mango Favicon -->
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🥭</text></svg>">
 <link rel="apple-touch-icon" sizes="180x180" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🥭</text></svg>">
 <link rel="icon" type="image/png" sizes="32x32" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🥭</text></svg>">
 <link rel="icon" type="image/png" sizes="16x16" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🥭</text></svg>">
+
 <script src="https://cdn.tailwindcss.com"></script>
 <script>
     tailwind.config = {
@@ -139,6 +164,54 @@ a, button, .btn-primary, .btn-outline {
     cursor: url("https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-06-03%20at%205.53.45%E2%80%AFPM-RfvR0tiAsWzwPhpor18n5u13uSjQNT.png") 16 16, pointer;
 }
 
+/* Loading Screen Styles */
+.loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #FEFDF8 0%, #F8F6F0 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.loading-screen.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.loading-spinner {
+    width: 60px;
+    height: 60px;
+    border: 4px solid #E5E3DB;
+    border-top: 4px solid #2D5016;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 20px;
+}
+
+.loading-text {
+    color: #2D5016;
+    font-size: 18px;
+    font-weight: 600;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.6; }
+}
+
 /* Typing Animation */
 .typing-text {
     overflow: hidden;
@@ -228,9 +301,92 @@ a, button, .btn-primary, .btn-outline {
         box-shadow: 0 4px 12px rgba(45, 80, 22, 0.3);
     }
 }
+
+/* Back to Top Button */
+.back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background: #2D5016;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(45, 80, 22, 0.3);
+    transition: all 0.3s ease;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    z-index: 1000;
+}
+
+.back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.back-to-top:hover {
+    background: #1F3A0F;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(45, 80, 22, 0.4);
+}
+
+.back-to-top:active {
+    transform: translateY(0);
+}
+
+/* Skeleton Loading for Images */
+.skeleton {
+    background: linear-gradient(90deg, #E5E3DB 25%, #F0EDE3 50%, #E5E3DB 75%);
+    background-size: 200% 100%;
+    animation: skeleton-loading 1.5s infinite;
+}
+
+@keyframes skeleton-loading {
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+/* Smooth scroll behavior */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Loading states for content */
+.content-loading {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.content-loaded {
+    opacity: 1;
+    transform: translateY(0);
+}
 </style>
 </head>
 <body>
+<!-- Loading Screen -->
+<div class="loading-screen" id="loadingScreen">
+    <div class="loading-spinner"></div>
+    <div class="loading-text">Loading Portfolio...</div>
+</div>
+
+<!-- Back to Top Button -->
+<button class="back-to-top" id="backToTop" aria-label="Back to top">
+    <i data-lucide="arrow-up" class="h-6 w-6"></i>
+</button>
+
 <!-- Navigation -->
 <header class="sticky top-0 z-40 w-full header-bg">
     <div class="container mx-auto px-4 flex h-16 items-center justify-between">
@@ -251,7 +407,7 @@ a, button, .btn-primary, .btn-outline {
 
 <main class="container mx-auto px-4 py-10">
     <!-- Hero Section -->
-    <section id="about" class="py-12 md:py-24 flex flex-col md:flex-row items-center gap-8">
+    <section id="about" class="py-12 md:py-24 flex flex-col md:flex-row items-center gap-8 content-loading">
         <div class="md:w-1/2 space-y-4">
             <h1 class="text-4xl md:text-5xl font-bold tracking-tight section-title typing-text">
                 Aspiring Product Manager
@@ -266,13 +422,14 @@ a, button, .btn-primary, .btn-outline {
         </div>
         <div class="md:w-1/2 flex justify-center">
             <div class="relative w-64 h-64 rounded-full overflow-hidden border-4 border-sage-green">
-                <img src="images/profile-photo.jpg" alt="Kavya Jain profile photo" class="w-full h-full object-cover">
+                <div class="skeleton w-full h-full" id="profileSkeleton"></div>
+                <img src="images/profile-photo.jpg" alt="Kavya Jain - Product Manager and UX Designer" class="w-full h-full object-cover opacity-0 transition-opacity duration-500" id="profileImage" onload="this.style.opacity=1; document.getElementById('profileSkeleton').style.display='none'">
             </div>
         </div>
     </section>
 
     <!-- Skills Section -->
-    <section id="skills" class="py-12 border-t-2 border-custom">
+    <section id="skills" class="py-12 border-t-2 border-custom content-loading">
         <h2 class="text-3xl font-bold mb-8 section-title">Skills & Expertise</h2>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div class="card p-6 rounded-lg">
@@ -331,7 +488,7 @@ a, button, .btn-primary, .btn-outline {
     </section>
 
     <!-- Education Section -->
-    <section id="education" class="py-12 border-t-2 border-custom">
+    <section id="education" class="py-12 border-t-2 border-custom content-loading">
         <h2 class="text-3xl font-bold mb-8 section-title">Education</h2>
         <div class="card p-6 rounded-lg">
             <div class="flex items-center gap-2 mb-4">
@@ -367,7 +524,7 @@ a, button, .btn-primary, .btn-outline {
     </section>
 
     <!-- Experience Section -->
-    <section id="experience" class="py-12 border-t-2 border-custom">
+    <section id="experience" class="py-12 border-t-2 border-custom content-loading">
         <h2 class="text-3xl font-bold mb-8 section-title">Work Experience</h2>
         <div class="space-y-8">
             <div class="card p-6 rounded-lg">
@@ -459,7 +616,7 @@ a, button, .btn-primary, .btn-outline {
     </section>
 
     <!-- Projects Section -->
-    <section id="projects" class="py-12 border-t-2 border-custom">
+    <section id="projects" class="py-12 border-t-2 border-custom content-loading">
         <h2 class="text-3xl font-bold mb-8 section-title">Featured Projects</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div class="card rounded-lg overflow-hidden">
@@ -715,7 +872,7 @@ a, button, .btn-primary, .btn-outline {
     </section>
 
     <!-- Additional Skills & Interests Section -->
-    <section id="additional" class="py-12 border-t-2 border-custom">
+    <section id="additional" class="py-12 border-t-2 border-custom content-loading">
         <h2 class="text-3xl font-bold mb-8 section-title">Additional Skills & Interests</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div class="card p-6 rounded-lg">
@@ -757,7 +914,7 @@ a, button, .btn-primary, .btn-outline {
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-12 border-t-2 border-custom">
+    <section id="contact" class="py-12 border-t-2 border-custom content-loading">
         <h2 class="text-3xl font-bold mb-8 section-title">Get In Touch</h2>
         <div class="card p-6 rounded-lg max-w-2xl mx-auto">
             <h3 class="text-xl font-bold mb-2 text-center">Contact Information</h3>
@@ -809,6 +966,43 @@ a, button, .btn-primary, .btn-outline {
     // Initialize Lucide icons
     lucide.createIcons();
 
+    // Loading Screen Management
+    window.addEventListener('load', function() {
+        const loadingScreen = document.getElementById('loadingScreen');
+        const contentElements = document.querySelectorAll('.content-loading');
+        
+        // Hide loading screen after a short delay
+        setTimeout(() => {
+            loadingScreen.classList.add('hidden');
+            
+            // Show content with staggered animation
+            contentElements.forEach((element, index) => {
+                setTimeout(() => {
+                    element.classList.remove('content-loading');
+                    element.classList.add('content-loaded');
+                }, index * 200);
+            });
+        }, 1000);
+    });
+
+    // Back to Top Button
+    const backToTopButton = document.getElementById('backToTop');
+    
+    window.addEventListener('scroll', function() {
+        if (window.pageYOffset > 300) {
+            backToTopButton.classList.add('visible');
+        } else {
+            backToTopButton.classList.remove('visible');
+        }
+    });
+    
+    backToTopButton.addEventListener('click', function() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+
     // Smooth scrolling for navigation links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
@@ -823,62 +1017,115 @@ a, button, .btn-primary, .btn-outline {
         });
     });
 
-// Scroll animation
-document.addEventListener('DOMContentLoaded', function() {
-    // Add fade-in class to elements we want to animate
-    const sections = document.querySelectorAll('section');
-    sections.forEach(section => {
-        section.classList.add('fade-in');
-    });
-    
-    const cards = document.querySelectorAll('.card');
-    cards.forEach(card => {
-        card.classList.add('hover-grow');
-    });
-    
-    // Check which elements are visible on page load
-    checkVisibility();
-    
-    // Check which elements are visible on scroll
-    window.addEventListener('scroll', checkVisibility);
-    
-    function checkVisibility() {
-        const fadeElements = document.querySelectorAll('.fade-in');
-        fadeElements.forEach(element => {
-            const elementTop = element.getBoundingClientRect().top;
-            const elementVisible = 150;
+    // Scroll animation for fade-in elements
+    document.addEventListener('DOMContentLoaded', function() {
+        // Add fade-in class to elements we want to animate
+        const sections = document.querySelectorAll('section');
+        sections.forEach(section => {
+            section.classList.add('fade-in');
+        });
+        
+        const cards = document.querySelectorAll('.card');
+        cards.forEach(card => {
+            card.classList.add('hover-grow');
+        });
+        
+        // Check which elements are visible on page load
+        checkVisibility();
+        
+        // Check which elements are visible on scroll
+        window.addEventListener('scroll', checkVisibility);
+        
+        function checkVisibility() {
+            const fadeElements = document.querySelectorAll('.fade-in');
+            fadeElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.classList.add('visible');
+                }
+            });
+        }
+        
+        // Create floating leaves in the background
+        function createFloatingLeaves() {
+            const tropicalEmojis = ['🌿', '🍃', '🌱', '🥭', '🥥', '🐉', '🍍', '🌴', '🍀', '🌾', '🫐', '🥝', '🌺'];
+            const numLeaves = 25;
+            const container = document.body;
             
-            if (elementTop < window.innerHeight - elementVisible) {
-                element.classList.add('visible');
+            for (let i = 0; i < numLeaves; i++) {
+                const leaf = document.createElement('div');
+                leaf.className = 'floating-leaf';
+                leaf.textContent = tropicalEmojis[Math.floor(Math.random() * tropicalEmojis.length)];
+                
+                // Random position and timing
+                leaf.style.left = `${Math.random() * 100}vw`;
+                leaf.style.animationDelay = `${Math.random() * 40}s`;
+                leaf.style.animationDuration = `${15 + Math.random() * 30}s`;
+                
+                container.appendChild(leaf);
             }
+        }
+        
+        createFloatingLeaves();
+    });
+
+    // Preload critical images
+    function preloadImages() {
+        const images = [
+            'images/profile-photo.jpg'
+        ];
+        
+        images.forEach(src => {
+            const img = new Image();
+            img.src = src;
         });
     }
     
-    // Create floating leaves in the background
-    function createFloatingLeaves() {
-    const tropicalEmojis = ['🌿', '🍃', '🌱', '🥭', '🥥', '🐉', '🍍', '🌴', '🍀', '🌾', '🫐', '🥝', '🌺'];
-    const numLeaves = 25;
-    const container = document.body;
-    const footer = document.querySelector('footer');
-    
-    for (let i = 0; i < numLeaves; i++) {
-        const leaf = document.createElement('div');
-        leaf.className = 'floating-leaf';
-        leaf.textContent = tropicalEmojis[Math.floor(Math.random() * tropicalEmojis.length)];
-        
-        // Random position and timing
-        leaf.style.left = `${Math.random() * 100}vw`;
-        leaf.style.animationDelay = `${Math.random() * 40}s`;
-        leaf.style.animationDuration = `${15 + Math.random() * 30}s`;
-        
-        container.appendChild(leaf);
-    }
+    preloadImages();
+
+    // Add loading state to external links
+    document.querySelectorAll('a[target="_blank"]').forEach(link => {
+        link.addEventListener('click', function() {
+            // Add a subtle loading indicator
+            const originalText = this.innerHTML;
+            this.style.opacity = '0.7';
+            setTimeout(() => {
+                this.style.opacity = '1';
+            }, 200);
+        });
+    });
+</script>
+
+<!-- Schema.org structured data for SEO -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Kavya Jain",
+  "jobTitle": "Aspiring Product Manager",
+  "description": "Computer Science graduate interested in product roles that align with effective altruism principles and create meaningful impact",
+  "url": "https://kavyajain99.github.io/portfolio-final-git/",
+  "sameAs": [
+    "https://www.linkedin.com/in/kavya2024/",
+    "https://github.com/kavyajain99"
+  ],
+  "alumniOf": {
+    "@type": "EducationalOrganization",
+    "name": "University of Miami"
+  },
+  "knowsAbout": [
+    "Product Management",
+    "UX/UI Design",
+    "Machine Learning",
+    "Software Engineering",
+    "Team Leadership",
+    "Scrum Master"
+  ],
+  "email": "kavya_jain@yahoo.com",
+  "telephone": "860-331-6206"
 }
-    
-    createFloatingLeaves();
-    
-    
-});
 </script>
 </body>
 </html>
