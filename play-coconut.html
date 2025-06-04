@@ -10,13 +10,14 @@
             theme: {
                 extend: {
                     colors: {
-                        'cherry-red': '#6B1D1D',
+                        'forest-green': '#2D5016',
+                        'sage-green': '#87A96B',
+                        'periwinkle': '#C5C5FF',
                         'butter-yellow': '#F5EDA3',
-                        'aura-indigo': '#B0A6DE',
-                        'dill-green': '#5F6B13',
-                        'alpine-oat': '#F0EDE3',
-                        'dark-cherry': '#4A1414',
-                        'light-cherry': '#8B2D2D'
+                        'cream': '#FEFDF8',
+                        'warm-gray': '#F8F6F0',
+                        'charcoal': '#2C2C2C',
+                        'soft-black': '#1A1A1A'
                     }
                 }
             }
@@ -26,67 +27,82 @@
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
         body {
-            background-color: #FEFEFE;
+            background-color: #FEFDF8;
             color: #1A1A1A;
         }
         .card {
-            background-color: #F0EDE3;
-            border: 2px solid #6B1D1D;
-            box-shadow: 0 4px 6px -1px rgba(107, 29, 29, 0.1);
+            background-color: #F8F6F0;
+            border: 2px solid #E5E3DB;
+            box-shadow: 0 2px 8px rgba(45, 80, 22, 0.08);
+            transition: all 0.2s ease;
+        }
+        .card:hover {
+            box-shadow: 0 4px 12px rgba(45, 80, 22, 0.12);
+            transform: translateY(-1px);
         }
         .badge {
-            background-color: #B0A6DE;
+            background-color: #C5C5FF;
             color: #1A1A1A;
             font-weight: 600;
+            border: 1px solid #B0B0FF;
         }
         .badge-secondary {
             background-color: #F5EDA3;
             color: #1A1A1A;
             font-weight: 600;
+            border: 1px solid #E8D68A;
         }
         .text-muted {
-            color: #2D2D2D;
+            color: #2C2C2C;
         }
         .btn-primary {
-            background-color: #6B1D1D;
+            background-color: #2D5016;
             color: #FFFFFF;
-            border: 2px solid #6B1D1D;
+            border: 2px solid #2D5016;
             font-weight: 600;
+            transition: all 0.2s ease;
         }
         .btn-primary:hover {
-            background-color: #4A1414;
-            border-color: #4A1414;
+            background-color: #1F3A0F;
+            border-color: #1F3A0F;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 8px rgba(45, 80, 22, 0.2);
         }
         .btn-outline {
             background-color: transparent;
-            color: #6B1D1D;
-            border: 2px solid #6B1D1D;
+            color: #2D5016;
+            border: 2px solid #2D5016;
             font-weight: 600;
+            transition: all 0.2s ease;
         }
         .btn-outline:hover {
-            background-color: #6B1D1D;
+            background-color: #2D5016;
             color: #FFFFFF;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 8px rgba(45, 80, 22, 0.2);
         }
         .nav-link {
-            color: #2D2D2D;
+            color: #2C2C2C;
             font-weight: 500;
+            transition: color 0.2s ease;
         }
         .nav-link:hover {
-            color: #6B1D1D;
+            color: #2D5016;
         }
         .section-title {
-            color: #6B1D1D;
+            color: #2D5016;
             font-weight: 700;
         }
         .border-custom {
-            border-color: #6B1D1D;
+            border-color: #87A96B;
         }
         .icon-primary {
-            color: #6B1D1D;
+            color: #2D5016;
         }
         .header-bg {
-            background-color: rgba(254, 254, 254, 0.95);
+            background-color: rgba(254, 253, 248, 0.95);
             backdrop-filter: blur(10px);
+            border-bottom: 2px solid #E5E3DB;
         }
         .video-container {
             position: relative;
@@ -100,23 +116,23 @@
             left: 0;
             width: 100%;
             height: 100%;
-            border: 2px solid #6B1D1D;
+            border: 2px solid #2D5016;
             border-radius: 8px;
         }
     </style>
 </head>
 <body>
     <!-- Navigation -->
-    <header class="sticky top-0 z-40 w-full border-b-2 border-custom header-bg">
+    <header class="sticky top-0 z-40 w-full header-bg">
         <div class="container mx-auto px-4 flex h-16 items-center justify-between">
             <div class="flex items-center gap-4">
-                <a href="index.html" class="flex items-center gap-2 nav-link hover:text-cherry-red transition-colors">
+                <a href="index.html" class="flex items-center gap-2 nav-link hover:text-forest-green transition-colors">
                     <i data-lucide="arrow-left" class="h-5 w-5"></i>
                     <span class="font-medium">Back to Portfolio</span>
                 </a>
             </div>
             <div class="flex items-center gap-2">
-                <i data-lucide="layers" class="h-6 w-6 icon-primary"></i>
+                <i data-lucide="leaf" class="h-6 w-6 icon-primary"></i>
                 <span class="font-bold text-xl">Kavya Jain</span>
             </div>
             <div class="w-32"></div> <!-- Spacer for centering -->
@@ -279,15 +295,15 @@
                         Scene Management
                     </h3>
                     <div class="space-y-3 text-muted">
-                        <div class="border-l-4 border-cherry-red pl-4">
+                        <div class="border-l-4 border-forest-green pl-4">
                             <h4 class="font-bold">Start Screen</h4>
                             <p class="text-sm">Game instructions and welcome interface</p>
                         </div>
-                        <div class="border-l-4 border-cherry-red pl-4">
+                        <div class="border-l-4 border-forest-green pl-4">
                             <h4 class="font-bold">Middle/Play Area</h4>
                             <p class="text-sm">Main gameplay with trees and coconut collection</p>
                         </div>
-                        <div class="border-l-4 border-cherry-red pl-4">
+                        <div class="border-l-4 border-forest-green pl-4">
                             <h4 class="font-bold">End Goal</h4>
                             <p class="text-sm">Final score display with lone coconut</p>
                         </div>
@@ -300,15 +316,15 @@
                         Data Structures
                     </h3>
                     <div class="space-y-3 text-muted">
-                        <div class="border-l-4 border-dill-green pl-4">
+                        <div class="border-l-4 border-sage-green pl-4">
                             <h4 class="font-bold">Arrays</h4>
                             <p class="text-sm">Managing time-based game mechanics</p>
                         </div>
-                        <div class="border-l-4 border-dill-green pl-4">
+                        <div class="border-l-4 border-sage-green pl-4">
                             <h4 class="font-bold">Lists</h4>
                             <p class="text-sm">Tracking collision events and interactions</p>
                         </div>
-                        <div class="border-l-4 border-dill-green pl-4">
+                        <div class="border-l-4 border-sage-green pl-4">
                             <h4 class="font-bold">For Loops</h4>
                             <p class="text-sm">Debug logging and system verification</p>
                         </div>
@@ -433,21 +449,21 @@
         </section>
     </main>
 
-    <footer class="border-t-2 border-custom py-6 bg-alpine-oat">
+    <footer class="border-t-2 border-custom py-6 bg-warm-gray">
         <div class="container mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-4">
             <div class="flex items-center gap-2">
-                <i data-lucide="layers" class="h-5 w-5 icon-primary"></i>
+                <i data-lucide="leaf" class="h-5 w-5 icon-primary"></i>
                 <span class="font-bold">Kavya Jain</span>
             </div>
             <p class="text-sm text-muted font-medium">© 2024 Kavya Jain. All rights reserved.</p>
             <div class="flex items-center gap-4">
-                <a href="https://www.linkedin.com/in/kavya2024/" target="_blank" class="text-muted hover:text-cherry-red transition-colors">
+                <a href="https://www.linkedin.com/in/kavya2024/" target="_blank" class="text-muted hover:text-forest-green transition-colors">
                     <i data-lucide="linkedin" class="h-5 w-5"></i>
                 </a>
-                <a href="https://github.com/kavyajain" target="_blank" class="text-muted hover:text-cherry-red transition-colors">
+                <a href="https://github.com/kavyajain" target="_blank" class="text-muted hover:text-forest-green transition-colors">
                     <i data-lucide="github" class="h-5 w-5"></i>
                 </a>
-                <a href="mailto:kavya_jain@yahoo.com" class="text-muted hover:text-cherry-red transition-colors">
+                <a href="mailto:kavya_jain@yahoo.com" class="text-muted hover:text-forest-green transition-colors">
                     <i data-lucide="mail" class="h-5 w-5"></i>
                 </a>
             </div>
