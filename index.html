@@ -142,7 +142,6 @@
     .natural-gradient {
         background: linear-gradient(135deg, #87A96B 0%, #2D5016 100%);
     }
-    /* Focus states for accessibility */
     .btn-primary:focus, .btn-outline:focus {
         outline: 3px solid #C5C5FF;
         outline-offset: 2px;
@@ -153,17 +152,14 @@
         border-radius: 4px;
     }
 
-/* Custom Monstera Cursor */
 body {
     cursor: url("https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-06-03%20at%205.53.45%E2%80%AFPM-RfvR0tiAsWzwPhpor18n5u13uSjQNT.png") 16 16, auto;
 }
 
-/* Ensure cursor works on all interactive elements */
 a, button, .btn-primary, .btn-outline {
     cursor: url("https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-06-03%20at%205.53.45%E2%80%AFPM-RfvR0tiAsWzwPhpor18n5u13uSjQNT.png") 16 16, pointer;
 }
 
-/* Loading Screen Styles */
 .loading-screen {
     position: fixed;
     top: 0;
@@ -184,7 +180,6 @@ a, button, .btn-primary, .btn-outline {
     visibility: hidden;
 }
 
-/* Monstera Loading Animation */
 .monstera-container {
     position: relative;
     width: 120px;
@@ -311,12 +306,10 @@ a, button, .btn-primary, .btn-outline {
     }
 }
 
-/* Remove old spinner styles */
 .loading-spinner {
     display: none;
 }
 
-/* Typing Animation */
 .typing-text {
     overflow: hidden;
     border-right: 3px solid #2D5016;
@@ -335,7 +328,6 @@ a, button, .btn-primary, .btn-outline {
     50% { border-color: #2D5016; }
 }
 
-/* Tropical theme updates */
 .tropical-gradient {
     background: linear-gradient(135deg, #2D5016 0%, #87A96B 50%, #F5EDAA 100%);
 }
@@ -344,7 +336,6 @@ a, button, .btn-primary, .btn-outline {
     background: linear-gradient(135deg, #FFB347 0%, #FF8C42 100%);
 }
 
-/* Animation Classes */
 .fade-in {
     opacity: 0;
     transform: translateY(20px);
@@ -364,7 +355,6 @@ a, button, .btn-primary, .btn-outline {
     transform: scale(1.03);
 }
 
-/* Leaf floating animation */
 .floating-leaf {
     position: absolute;
     font-size: 24px;
@@ -392,7 +382,6 @@ a, button, .btn-primary, .btn-outline {
     }
 }
 
-/* Subtle pulse animation for buttons */
 .btn-primary, .btn-outline {
     animation: subtle-pulse 3s infinite alternate;
 }
@@ -406,7 +395,6 @@ a, button, .btn-primary, .btn-outline {
     }
 }
 
-/* Back to Top Button */
 .back-to-top {
     position: fixed;
     bottom: 30px;
@@ -445,7 +433,6 @@ a, button, .btn-primary, .btn-outline {
     transform: translateY(0);
 }
 
-/* Skeleton Loading for Images */
 .skeleton {
     background: linear-gradient(90deg, #E5E3DB 25%, #F0EDE3 50%, #E5E3DB 75%);
     background-size: 200% 100%;
@@ -461,12 +448,10 @@ a, button, .btn-primary, .btn-outline {
     }
 }
 
-/* Smooth scroll behavior */
 html {
     scroll-behavior: smooth;
 }
 
-/* Loading states for content */
 .content-loading {
     opacity: 0;
     transform: translateY(20px);
@@ -478,7 +463,6 @@ html {
     transform: translateY(0);
 }
 
-/* Mobile-specific improvements */
 @media (max-width: 768px) {
     .typing-text {
         font-size: 2rem;
@@ -495,7 +479,6 @@ html {
         margin: 0 auto;
     }
     
-    /* Adjust profile image for smaller screens */
     @media (max-width: 480px) {
         .profile-container {
             width: 180px;
@@ -504,7 +487,6 @@ html {
     }
 }
 
-/* Improve button spacing on mobile */
 @media (max-width: 640px) {
     .hero-buttons {
         gap: 0.75rem;
@@ -607,17 +589,18 @@ html {
             <div class="card p-6 rounded-lg">
                 <div class="flex items-center gap-2 mb-4">
                     <i data-lucide="brain" class="h-6 w-6 icon-primary"></i>
-                    <h3 class="text-xl font-bold">Machine Learning</h3>
+                    <h3 class="text-xl font-bold">Machine Learning & AI</h3>
                 </div>
                 <p class="text-muted mb-4">
-                    Experience with machine learning models and techniques for audio and image processing.
+                    Experience with machine learning models and techniques for audio and image processing, plus specialized AI safety education.
                 </p>
                 <div class="flex flex-wrap gap-2">
                     <span class="badge px-3 py-1 rounded-full text-sm">ResNet18</span>
                     <span class="badge px-3 py-1 rounded-full text-sm">Binary Classification</span>
                     <span class="badge px-3 py-1 rounded-full text-sm">Spectrograms</span>
                     <span class="badge px-3 py-1 rounded-full text-sm">STFT</span>
-                    <span class="badge px-3 py-1 rounded-full text-sm">Feature Extraction</span>
+                    <span class="badge px-3 py-1 rounded-full text-sm">AI Safety</span>
+                    <span class="badge px-3 py-1 rounded-full text-sm">AI Ethics</span>
                 </div>
             </div>
 
@@ -643,33 +626,57 @@ html {
     <!-- Education Section -->
     <section id="education" class="py-12 border-t-2 border-custom content-loading">
         <h2 class="text-3xl font-bold mb-8 section-title">Education</h2>
-        <div class="card p-6 rounded-lg">
-            <div class="flex items-center gap-2 mb-4">
-                <i data-lucide="graduation-cap" class="h-6 w-6 icon-primary"></i>
-                <div>
-                    <h3 class="text-xl font-bold">University of Miami</h3>
-                    <p class="text-muted font-medium">Bachelor of Arts in Computer Science (December 2024)</p>
+        <div class="space-y-6">
+            <!-- University Education -->
+            <div class="card p-6 rounded-lg">
+                <div class="flex items-center gap-2 mb-4">
+                    <i data-lucide="graduation-cap" class="h-6 w-6 icon-primary"></i>
+                    <div>
+                        <h3 class="text-xl font-bold">University of Miami</h3>
+                        <p class="text-muted font-medium">Bachelor of Arts in Computer Science (December 2024)</p>
+                    </div>
+                </div>
+                <div class="space-y-4">
+                    <div class="flex flex-wrap gap-x-8 gap-y-2">
+                        <div class="flex items-center gap-2">
+                            <span class="font-bold">GPA:</span>
+                            <span class="font-medium">3.9 / 4.0</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="font-bold">Honors:</span>
+                            <span class="font-medium">Provost Honor Roll & Dean's List</span>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="font-bold mb-2">Relevant Coursework:</h4>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="badge-secondary px-3 py-1 rounded-full text-sm">Tech Project Management</span>
+                            <span class="badge-secondary px-3 py-1 rounded-full text-sm">Software Design and Verification</span>
+                            <span class="badge-secondary px-3 py-1 rounded-full text-sm">Data Structures and Algorithms</span>
+                            <span class="badge-secondary px-3 py-1 rounded-full text-sm">Interaction Design (UX/UI, Figma)</span>
+                            <span class="badge-secondary px-3 py-1 rounded-full text-sm">Computer Organization and Architecture</span>
+                            <span class="badge-secondary px-3 py-1 rounded-full text-sm">Artificial Intelligence</span>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="space-y-4">
-                <div class="flex flex-wrap gap-x-8 gap-y-2">
-                    <div class="flex items-center gap-2">
-                        <span class="font-bold">GPA:</span>
-                        <span class="font-medium">3.9 / 4.0</span>
-                    </div>
-                    <div class="flex items-center gap-2">
-                        <span class="font-bold">Honors:</span>
-                        <span class="font-medium">Provost Honor Roll & Dean's List</span>
+
+            <!-- Additional AI Education -->
+            <div class="card p-6 rounded-lg">
+                <div class="flex items-center gap-2 mb-4">
+                    <i data-lucide="shield-check" class="h-6 w-6 icon-primary"></i>
+                    <div>
+                        <h3 class="text-xl font-bold">AI Interest</h3>
+                        <p class="text-muted font-medium">Additional Coursework & Certifications</p>
                     </div>
                 </div>
-                <div>
-                    <h4 class="font-bold mb-2">Relevant Coursework:</h4>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="badge-secondary px-3 py-1 rounded-full text-sm">Tech Project Management</span>
-                        <span class="badge-secondary px-3 py-1 rounded-full text-sm">Software Design and Verification</span>
-                        <span class="badge-secondary px-3 py-1 rounded-full text-sm">Data Structures and Algorithms</span>
-                        <span class="badge-secondary px-3 py-1 rounded-full text-sm">Interaction Design (UX/UI, Figma)</span>
-                        <span class="badge-secondary px-3 py-1 rounded-full text-sm">Computer Organization and Architecture</span>
+                <div class="space-y-3">
+                    <div class="flex items-start gap-3">
+                        <i data-lucide="award" class="h-5 w-5 icon-primary mt-0.5"></i>
+                        <div>
+                            <p class="font-medium">AI Safety and Ethics - Politecnico di Milano (Coursera)</p>
+                            <p class="text-sm text-muted">Comprehensive course covering AI alignment, safety protocols, and ethical frameworks for responsible AI development</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1100,7 +1107,7 @@ html {
             <i data-lucide="leaf" class="h-5 w-5 icon-primary"></i>
             <span class="font-bold">Kavya Jain</span>
         </div>
-        <p class="text-sm text-muted font-medium">© 2024 Kavya Jain. All rights reserved.</p>
+        <p class="text-sm text-muted font-medium">© 2025 Kavya Jain. All rights reserved.</p>
         <div class="flex items-center gap-4">
             <a href="https://www.linkedin.com/in/kavya2024/" target="_blank" class="text-muted hover:text-forest-green transition-colors">
                 <i data-lucide="linkedin" class="h-5 w-5"></i>
