@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical Summary Agent - Kavya Jain</title>
+    <meta name="description" content="AI-powered medical research agent that queries PubMed and generates evidence-based health summaries using OpenAI API">
+    
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🥭</text></svg>">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'forest-green': '#2D5016',
+                        'sage-green': '#87A96B',
+                        'periwinkle': '#C5C5FF',
+                        'butter-yellow': '#F5EDAA',
+                        'cream': '#FEFDF8',
+                        'warm-gray': '#F8F6F0',
+                        'charcoal': '#2C2C2C',
+                        'soft-black': '#1A1A1A'
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/lucide/0.263.1/lucide.min.css" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body {
+            background-color: #FEFDF8;
+            color: #1A1A1A;
+        }
+        .card {
+            background-color: #F8F6F0;
+            border: 2px solid #E5E3DB;
+            box-shadow: 0 2px 8px rgba(45, 80, 22, 0.08);
+        }
+        .section-title {
+            color: #2D5016;
+            font-weight: 700;
+        }
+        .btn-primary {
+            background-color: #2D5016;
+            color: #FFFFFF;
+            border: 2px solid #2D5016;
+            font-weight: 600;
+            transition: all 0.2s ease;
+        }
+        .btn-primary:hover {
+            background-color: #1F3A0F;
+            transform: translateY(-1px);
+        }
+        .badge {
+            background-color: #C5C5FF;
+            color: #1A1A1A;
+            font-weight: 600;
+            border: 1px solid #B0B0FF;
+        }
+        .icon-primary {
+            color: #2D5016;
+        }
+        .gradient-header {
+            background: linear-gradient(135deg, #4F46E5 0%, #7C3AED 100%);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="sticky top-0 z-40 w-full bg-white border-b-2 border-gray-200">
+        <div class="container mx-auto px-4 flex h-16 items-center justify-between">
+            <a href="index.html" class="flex items-center gap-2 hover:opacity-80 transition-opacity">
+                <i data-lucide="arrow-left" class="h-5 w-5 icon-primary"></i>
+                <span class="font-bold">Back to Portfolio</span>
+            </a>
+            <a href="https://medical-summary-agent.streamlit.app/" target="_blank" class="btn-primary px-4 py-2 rounded-md">
+                Try Live App
+            </a>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-12 max-w-4xl">
+        <!-- Hero Section -->
+        <div class="gradient-header rounded-lg p-8 md:p-12 mb-12 text-white">
+            <div class="flex items-center gap-3 mb-4">
+                <i data-lucide="stethoscope" class="h-12 w-12"></i>
+                <h1 class="text-4xl md:text-5xl font-bold">Medical Summary Agent</h1>
+            </div>
+            <p class="text-xl md:text-2xl opacity-90 mb-6">
+                AI-powered research agent for accessible, evidence-based healthcare information
+            </p>
+            <div class="flex flex-wrap gap-2">
+                <span class="bg-white/20 backdrop-blur-sm px-3 py-1 rounded-full text-sm">Python</span>
+                <span class="bg-white/20 backdrop-blur-sm px-3 py-1 rounded-full text-sm">Streamlit</span>
+                <span class="bg-white/20 backdrop-blur-sm px-3 py-1 rounded-full text-sm">OpenAI API</span>
+                <span class="bg-white/20 backdrop-blur-sm px-3 py-1 rounded-full text-sm">PubMed API</span>
+                <span class="bg-white/20 backdrop-blur-sm px-3 py-1 rounded-full text-sm">AI Agents</span>
+            </div>
+        </div>
+
+        <!-- Problem Statement -->
+        <section class="mb-12">
+            <h2 class="text-3xl font-bold mb-6 section-title">The Problem</h2>
+            <div class="card p-6 rounded-lg space-y-4">
+                <div class="flex items-start gap-3">
+                    <i data-lucide="alert-circle" class="h-6 w-6 icon-primary mt-1 flex-shrink-0"></i>
+                    <div>
+                        <h3 class="font-bold text-lg mb-2">AI Hallucinations in Healthcare</h3>
+                        <p class="text-gray-700">
+                            ChatGPT and similar AI models often "hallucinate" medical information—generating plausible-sounding but factually incorrect health advice. This is dangerous when people rely on AI for medical decisions.
+                        </p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-3">
+                    <i data-lucide="lock" class="h-6 w-6 icon-primary mt-1 flex-shrink-0"></i>
+                    <div>
+                        <h3 class="font-bold text-lg mb-2">Inaccessible Medical Research</h3>
+                        <p class="text-gray-700">
+                            The latest peer-reviewed medical research is often locked behind paywalls, written in technical jargon, or scattered across databases—making modern medicine inaccessible to everyday people.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Solution -->
+        <section class="mb-12">
+            <h2 class="text-3xl font-bold mb-6 section-title">The Solution</h2>
+            <div class="card p-6 rounded-lg">
+                <p class="text-lg text-gray-700 mb-6">
+                    The Medical Summary Agent is an AI-powered tool that bridges the gap between cutting-edge medical research and accessible healthcare information. It combines the power of AI with the reliability of peer-reviewed science.
+                </p>
+                
+                <div class="space-y-6">
+                    <div class="flex items-start gap-4">
+                        <div class="bg-purple-100 rounded-full p-3 flex-shrink-0">
+                            <i data-lucide="search" class="h-6 w-6 text-purple-600"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg mb-2">1. Query PubMed Database</h3>
+                            <p class="text-gray-700">
+                                The agent searches PubMed—the world's largest database of peer-reviewed medical literature—for the most recent and relevant research papers on your health query.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-4">
+                        <div class="bg-blue-100 rounded-full p-3 flex-shrink-0">
+                            <i data-lucide="brain" class="h-6 w-6 text-blue-600"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg mb-2">2. AI-Powered Analysis</h3>
+                            <p class="text-gray-700">
+                                Using OpenAI's API, the agent reads and synthesizes multiple research papers, extracting key findings and translating complex medical terminology into clear, understandable language.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-4">
+                        <div class="bg-green-100 rounded-full p-3 flex-shrink-0">
+                            <i data-lucide="shield-check" class="h-6 w-6 text-green-600"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg mb-2">3. Evidence-Based Summaries</h3>
+                            <p class="text-gray-700">
+                                The agent generates summaries grounded in real scientific evidence, complete with citations to the original research papers—eliminating hallucinations and ensuring accuracy.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technical Implementation -->
+        <section class="mb-12">
+            <h2 class="text-3xl font-bold mb-6 section-title">Technical Implementation</h2>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="card p-6 rounded-lg">
+                    <div class="flex items-center gap-2 mb-4">
+                        <i data-lucide="code" class="h-6 w-6 icon-primary"></i>
+                        <h3 class="font-bold text-lg">AI Agent Architecture</h3>
+                    </div>
+                    <ul class="space-y-2 text-gray-700">
+                        <li class="flex items-start gap-2">
+                            <span class="text-purple-600 mt-1">•</span>
+                            <span>Built with Python and Streamlit for rapid deployment</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-purple-600 mt-1">•</span>
+                            <span>Implements agentic workflow with tool-calling capabilities</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-purple-600 mt-1">•</span>
+                            <span>Uses retrieval-augmented generation (RAG) pattern</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-purple-600 mt-1">•</span>
+                            <span>Integrates OpenAI API for natural language processing</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="card p-6 rounded-lg">
+                    <div class="flex items-center gap-2 mb-4">
+                        <i data-lucide="database" class="h-6 w-6 icon-primary"></i>
+                        <h3 class="font-bold text-lg">PubMed Integration</h3>
+                    </div>
+                    <ul class="space-y-2 text-gray-700">
+                        <li class="flex items-start gap-2">
+                            <span class="text-blue-600 mt-1">•</span>
+                            <span>Queries NCBI's PubMed API for peer-reviewed articles</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-blue-600 mt-1">•</span>
+                            <span>Filters for recent, high-quality research papers</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-blue-600 mt-1">•</span>
+                            <span>Extracts abstracts and metadata for analysis</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-blue-600 mt-1">•</span>
+                            <span>Provides direct citations to source material</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Impact & Goals -->
+        <section class="mb-12">
+            <h2 class="text-3xl font-bold mb-6 section-title">Impact & Goals</h2>
+            <div class="card p-6 rounded-lg">
+                <div class="flex items-start gap-3 mb-6">
+                    <i data-lucide="heart" class="h-8 w-8 icon-primary mt-1"></i>
+                    <div>
+                        <h3 class="font-bold text-xl mb-3">Accessible Modern Medicine for All</h3>
+                        <p class="text-gray-700 mb-4">
+                            This project embodies the principles of <strong>effective altruism</strong> by democratizing access to medical knowledge. Healthcare information should not be a privilege—it should be a right.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-4">
+                    <div class="bg-purple-50 p-4 rounded-lg">
+                        <div class="font-bold text-2xl text-purple-600 mb-2">🎯</div>
+                        <h4 class="font-bold mb-1">Accuracy</h4>
+                        <p class="text-sm text-gray-600">Grounded in peer-reviewed research, not AI hallucinations</p>
+                    </div>
+                    <div class="bg-blue-50 p-4 rounded-lg">
+                        <div class="font-bold text-2xl text-blue-600 mb-2">🌍</div>
+                        <h4 class="font-bold mb-1">Accessibility</h4>
+                        <p class="text-sm text-gray-600">Free, open access to the latest medical science</p>
+                    </div>
+                    <div class="bg-green-50 p-4 rounded-lg">
+                        <div class="font-bold text-2xl text-green-600 mb-2">💡</div>
+                        <h4 class="font-bold mb-1">Clarity</h4>
+                        <p class="text-sm text-gray-600">Complex research translated into plain language</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- AI Safety Considerations -->
+        <section class="mb-12">
+            <h2 class="text-3xl font-bold mb-6 section-title">AI Safety & Ethics</h2>
+            <div class="card p-6 rounded-lg space-y-4">
+                <p class="text-gray-700">
+                    This project demonstrates responsible AI development by addressing key safety concerns:
+                </p>
+                <div class="space-y-3">
+                    <div class="flex items-start gap-3">
+                        <i data-lucide="shield" class="h-5 w-5 icon-primary mt-1"></i>
+                        <div>
+                            <strong>Grounding in Truth:</strong> By anchoring AI responses in peer-reviewed literature, we prevent hallucinations and misinformation.
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <i data-lucide="eye" class="h-5 w-5 icon-primary mt-1"></i>
+                        <div>
+                            <strong>Transparency:</strong> Every summary includes citations, allowing users to verify information and read the original research.
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <i data-lucide="users" class="h-5 w-5 icon-primary mt-1"></i>
+                        <div>
+                            <strong>Human-Centered Design:</strong> The tool empowers users to make informed decisions, not replace medical professionals.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action -->
+        <section class="text-center">
+            <div class="card p-8 rounded-lg">
+                <h2 class="text-2xl font-bold mb-4">Try the Medical Summary Agent</h2>
+                <p class="text-gray-700 mb-6 max-w-2xl mx-auto">
+                    Experience how AI can make medical research accessible while maintaining accuracy and reliability.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="https://medical-summary-agent.streamlit.app/" target="_blank" class="btn-primary px-8 py-3 rounded-md inline-flex items-center justify-center gap-2">
+                        <i data-lucide="external-link" class="h-5 w-5"></i>
+                        Launch App
+                    </a>
+                    <a href="index.html" class="border-2 border-forest-green text-forest-green px-8 py-3 rounded-md inline-flex items-center justify-center gap-2 hover:bg-forest-green hover:text-white transition-colors font-semibold">
+                        <i data-lucide="arrow-left" class="h-5 w-5"></i>
+                        Back to Portfolio
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="border-t-2 border-gray-200 py-6 bg-warm-gray mt-12">
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-sm text-gray-600">© 2025 Kavya Jain. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
